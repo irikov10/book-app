@@ -5,8 +5,11 @@
 }
 
 .footer {
-    background-color: #F9E795;
-    height: 100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;   /* Height of the footer */
+    background: #560D0D;
 }
 
 .wrapper h3 {
@@ -15,14 +18,7 @@
     padding-top: 30px;
     font-weight: bold;
 }
-
-.text {
-    text-align: center;
-    margin-top: 20px;
-    line-height: 26.5px;
-    font-size: 20px;
-}
-
+/* 
 .social-media {
     display: flex;
     justify-content: center;
@@ -30,26 +26,24 @@
     gap: 40px;
     margin-top: 30px;
     margin-bottom: 20px;
-}
+} */
 
 .extra {
-    background: #F96167;
     display: flex;
     justify-content: space-between;
-    height: 70px;
 }
 
 .extra h2 {
     color: white;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 25px;
     font-size: 20px;
 }
 
 .extra ul {
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
 .extra ul li a{

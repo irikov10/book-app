@@ -1,0 +1,38 @@
+<main>
+    <div class="wrapper">
+        <div class="login-container">
+
+            <form
+                class="login-form"
+                id="login"
+            >
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                    />
+                    <label for="email">Email</label>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input
+                        id="password"
+                        type="password"
+                        required
+                    />
+                    <label for="password">Password</label>
+                </div>
+    
+                <button type="submit" class="login-btn" value="Login">Login</button>
+    
+                <div class="login-register">
+                    <h4>Don't have an account? <a routerLink="/register" class="register-link">Register</a></h4>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
