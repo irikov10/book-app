@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&family=Goudy+Bookletter+1911&family=Pangolin&display=swap');
+
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Pangolin', cursive;
 }
 
 .wrapper {
-    background-color: #821414;
+    background-color: #6E2828;
     min-height: 80vh;
 }
 
@@ -15,8 +17,7 @@
     transform: translate(-50%, -50%);
     width: 400px;
     height: 440px;
-    background: rgb(144,238,144);
-    background: linear-gradient(90deg, rgba(144,238,144,1) 38%, rgba(255,255,255,1) 100%); 
+    background: #82c482;
     border: 1px solid white;
     border-radius: 20px;
     display: flex;

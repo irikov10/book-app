@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&family=Goudy+Bookletter+1911&family=Pangolin&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Pangolin', cursive;
+}
+
+.wrapper {
+    background-color: #6E2828;
+    min-height: 80vh;
+}
+
+.register-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);;
+    width: 400px;
+    height: 440px;
+    background: #82c482;
+
+    border: 1px solid white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form {
+    width: 100%;
+    padding: 40px;
+}
+
+.register-form h2 {
+    font-size: 30px;
+    color: black;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    transform: translateY(-50%);
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.icon {
+    position: absolute;
+    right: 8px;
+    font-size: 18px;
+    color: black;
+    line-height: 57px;
+    padding-right: 5px;
+}
+
+.remember-me {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.remember-me label {
+    font-size: 15px;
+    padding: -15px 0 15px;
+}
+
+.remember-me a {
+    text-decoration: none;
+    color: black;
+}
+
+.remember-me a:hover {
+    color: blue;
+}
+
+.register-btn {
+    width: 100%;
+    height: 30px;
+    background: rgb(144,238,144);
+    background-color: linear-gradient(90deg, rgba(144,238,144,1) 30%, rgba(255,255,255,1) 100%);
+    border: 2px outset #D0CAC9;
+    border-radius: 20px;
+    border-style: outset;
+    padding: 6px 0px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.register-btn:hover {
+    cursor: pointer;
+    color: green;
+} 
+
+.login-register {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.login-link {
+    padding-left: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.login-link:hover {
+    color: blue;
+    cursor: pointer;
+}

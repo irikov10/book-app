@@ -1,1 +1,38 @@
-<p>register works!</p>
+<main>
+    <div class="wrapper">
+        <div class="register-container">
+
+            <form
+                class="register-form"
+                id="register"
+            >
+                <h2>Register</h2>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                    />
+                    <label for="email">Email</label>
+                </div>
+    
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <input
+                        id="password"
+                        type="password"
+                        required
+                    />
+                    <label for="password">Password</label>
+                </div>
+    
+                <button type="submit" class="register-btn" value="Register">Register</button>
+    
+                <div class="login-register">
+                    <h4>Have an account? <a routerLink="/login" class="login-link">Login</a></h4>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
