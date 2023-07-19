@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&family=Goudy+Bookletter+1911&family=Pangolin&display=swap');
+
+* {
+    font-family: 'Pangolin', cursive;
+}
+
+html {
+    overflow: hidden;
+}
+
+#main {
+    background: #6E2828;
+}
+
+.details-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.image img {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    left: 37%;
+    margin-top: 40px;
+}
+
+.information {
+    text-align: center;
+    font-size: 20px;
+    color: #CBD18F;
+    width: 1200px;
+    position: relative;
+    left: 6.5%;
+}
+
+.title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.author {
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.brief-summary {
+    line-height: 23px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.brief-info {
+    line-height: 23px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    position: relative;
+    left: 44%;
+}
+
+.edit {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: orange;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.delete {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}

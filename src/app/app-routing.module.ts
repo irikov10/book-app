@@ -5,6 +5,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'books-collection', component: BookCollectionComponent },
   { path: 'favorite-books', component:  FavoriteBooksComponent},
+  { path: 'book-details', component: BookDetailsComponent}
 ];
 
 @NgModule({
