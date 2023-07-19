@@ -5,10 +5,9 @@
 }
 
 .footer {
-    /* position: fixed; */
-    bottom: 0;
-    width: 100%;
-    height: 60px;   /* Height of the footer */
+    margin-top: auto;
+    z-index: 5;
+    padding: 20px;
     background: #560D0D;
 }
 
@@ -36,14 +35,14 @@
 .extra h2 {
     color: white;
     margin-left: 30px;
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 20px;
 }
 
 .extra ul {
     display: flex;
     flex-direction: row;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .extra ul li a{
