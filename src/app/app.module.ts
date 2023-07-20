@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BookDetailsComponent } from './book-details/book-details.component';
     HomeComponent,
     BookCollectionComponent,
     FavoriteBooksComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
