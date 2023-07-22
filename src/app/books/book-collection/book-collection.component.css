@@ -19,6 +19,7 @@ html {
 }
 
 .wrapper {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -29,9 +30,12 @@ html {
 .image img {
     height: 300px;
     width: 200px;
-    margin: 20px 20px;
+    margin: 50px 20px;
     border: 10px outset white;
     padding: 1px;
+    position: relative;
+    top: 3%;
+    left: 2%;
 }
 
 .information {
@@ -42,8 +46,8 @@ html {
 
 .title {
     font-size: 18px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .author {
@@ -57,10 +61,13 @@ html {
     margin-bottom: 20px;
 }
 
+.price {
+    margin-bottom: 30px;
+}
+
 .see-details-button {
-    position: relative;
-    left: 90%;
-    top: 4%;
+    position: relative; 
+    height: 30px;
     color: #CBD18F;
     text-decoration: none;
     border: 2px solid black;
@@ -68,4 +75,5 @@ html {
     padding: 10px 15px;
     background: #5380BD;
     color: white;
+    text-align: center;
 }

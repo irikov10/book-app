@@ -1,0 +1,23 @@
+<main id="main">
+
+    <div class="book-wrapper">
+        <div class="wrapper" *ngFor="let book of booksList">
+
+            <div class="image">
+                <img src="{{ book.img }}" alt="{{ book.title }}">
+            </div>
+
+            <div class="information">
+                <h3 class="title">Title: {{ book.title }}</h3>
+                <h4 class="author">Author: {{ book.author }}</h4>
+                <p class="brief-summary">Summary: {{ book.summary }}</p>
+
+                <p class="price">Price: {{ book.price }}</p>
+
+            </div>
+            
+            <a routerLink="/book-details" class="see-details-button">See Details</a>
+        </div>
+
+    </div>
+</main>

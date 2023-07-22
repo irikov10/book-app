@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
-import { BookCollectionComponent } from './book-collection/book-collection.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+import { BookCollectionComponent } from './books/book-collection/book-collection.component';
+import { FavoriteBooksComponent } from './books/favorite-books/favorite-books.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { EditBookComponent } from './books/edit-book/edit-book.component';
+
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
