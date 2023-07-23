@@ -8,16 +8,22 @@
             </div>
 
             <div class="information">
-                <h3 class="title">Title: {{ book.title }}</h3>
-                <h4 class="author">Author: {{ book.author }}</h4>
-                <p class="brief-summary">Summary: {{ book.summary }}</p>
-
-                <p class="price">Price: {{ book.price }}</p>
+                <h3 class="title">{{ book.title }}</h3>
+                <h4 class="author">{{ book.author }}</h4>
 
             </div>
-            
-            <a routerLink="/book-details" class="see-details-button">See Details</a>
+
+            <a routerLink="/book-details" class="btn">
+
+                <div class="see-details-button">
+                    See Details
+                </div>
+            </a>
         </div>
 
+    </div>
+
+    <div class="add-btn-wrapper">
+        <a routerLink="/add-book" class="add-btn">Add Book</a>
     </div>
 </main>

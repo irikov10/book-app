@@ -34,11 +34,11 @@ html {
 
 .image img {
     height: 400px;
-    width: 380px;
+    width: 381px;
     /* margin: 20px 20px; */
     border: 10px outset white;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     /* padding: 1px; */
 }
 

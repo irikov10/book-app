@@ -5,6 +5,8 @@
 }
 
 .footer {
+    position: sticky;
+    top: 100%; 
     margin-top: auto;
     z-index: 5;
     padding: 15px;

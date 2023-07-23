@@ -7,6 +7,7 @@ import { BookCollectionComponent } from './books/book-collection/book-collection
 import { FavoriteBooksComponent } from './books/favorite-books/favorite-books.component';
 import { BookDetailsComponent } from './books/book-details/book-details.component';
 import { EditBookComponent } from './books/edit-book/edit-book.component';
+import { AddBookComponent } from './books/add-book/add-book.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'books-collection', component: BookCollectionComponent },
   { path: 'favorite-books', component:  FavoriteBooksComponent },
   { path: 'book-details', component: BookDetailsComponent },
-  { path: 'edit-book', component: EditBookComponent }
+  { path: 'edit-book', component: EditBookComponent },
+  { path: 'add-book', component: AddBookComponent}
 ];
 
 @NgModule({

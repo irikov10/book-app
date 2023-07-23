@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/interfaces/book';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: 'app-favorite-books',

@@ -5,6 +5,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 import { BookCollectionComponent } from './book-collection/book-collection.component';
 import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
 import { RouterModule } from '@angular/router';
+import { AddBookComponent } from './add-book/add-book.component';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     BookCollectionComponent,
     FavoriteBooksComponent,
     BookDetailsComponent,
-    EditBookComponent
+    EditBookComponent,
+    AddBookComponent
   ],
   imports: [
     CommonModule,
