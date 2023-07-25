@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core'
 import { Book } from 'src/app/interfaces/book';
 import { BooksService } from '../books.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-book-collection',
@@ -18,7 +19,7 @@ export class BookCollectionComponent implements OnInit {
       next: (value) => {
         this.booksList = Object.values(value);
       },
-      error: error => alert(error)
+      error: error => { throw new Error(error) }
     })
   }
 }

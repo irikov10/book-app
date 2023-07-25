@@ -47,50 +47,21 @@
                 <div class="write-comment">
                     <img src="../../../assets/user_318-644325.avif" alt="user-image">
                     <input placeholder="Join the conversation" />
+                    <button type="submit" class="send-comment">Send</button>
                 </div>
 
-                <div class="comment-structure">
+                <div class="comment-structure" *ngFor="let c of commentsList">
                     <div class="author-information">
                         <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
     
                         <div class="author-details">
-                            <h3 class="author-username">John10</h3>
-                            <h4 class="user-tag">@John Johnston</h4>
+                            <h3 class="author-username">{{ c.username }}</h3>
+                            <h4 class="user-tag">{{ c.tag }}</h4>
                         </div>
                     </div>
     
                     <div class="comment-information">
-                        <p class="comment">That book is great!!!!</p>
-                    </div>
-                </div>
-
-                <div class="comment-structure">
-                    <div class="author-information">
-                        <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
-    
-                        <div class="author-details">
-                            <h3 class="author-username">John10</h3>
-                            <h4 class="user-tag">@John Johnston</h4>
-                        </div>
-                    </div>
-    
-                    <div class="comment-information">
-                        <p class="comment">That book is great!!!!</p>
-                    </div>
-                </div>
-
-                <div class="comment-structure">
-                    <div class="author-information">
-                        <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
-    
-                        <div class="author-details">
-                            <h3 class="author-username">John10</h3>
-                            <h4 class="user-tag">@John Johnston</h4>
-                        </div>
-                    </div>
-    
-                    <div class="comment-information">
-                        <p class="comment">That book is great!!!!</p>
+                        <p class="comment">{{ c.comment }}</p>
                     </div>
                 </div>
             </div>

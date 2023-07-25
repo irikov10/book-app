@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from '../interfaces/book';
+import { Comments } from '../interfaces/comments';
 
 const apiUrl = environment.apiURL;
 
@@ -17,6 +18,6 @@ export class BooksService {
   }
 
   getComments() {
-    return this.http.get<Comment[]>(apiUrl + '/comments');
+    return this.http.get<Comments[]>(`${apiUrl}/books/comments`);
   }
 }

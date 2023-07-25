@@ -48,6 +48,29 @@
             "summary": "Geralt the Witcher—revered and hated—holds the line against the monsters plaguing humanity in this collection of adventures, the first chapter in Andrzej Sapkowski’s groundbreaking epic fantasy series that inspired the hit Netflix show and the blockbuster video games. Geralt is a Witcher, a man whose magic powers, enhanced by long training and a mysterious elixir, have made him a brilliant fighter and a merciless hunter. Yet he is no ordinary killer. His sole purpose: to destroy the monsters that plague the world. But not everything monstrous-looking is evil and not everything fair is good . . . and in every fairy tale there is a grain of truth.",
             "price": "$14",
             "_id": "f859f3e9-a3ca-4ac1-8937-b374792c9548"
+        },
+
+        "comments": {
+            "8d70a6d5-9327-4083-9b4f-d04d41bc7c04": {
+                "username": "John10",
+                "tag": "@John Johnston",
+                "comment": "Great book!!!!",
+                "_id": "8d70a6d5-9327-4083-9b4f-d04d41bc7c04"
+            },
+    
+            "0c4b011a-4944-4e1c-b863-23ceb4ee5330": {
+                "username": "Peter24",
+                "tag": "@Peter McCarthy",
+                "comment": "My favorite book. I strongly recommend it. Very easy to read and to understand",
+                "_id": "0c4b011a-4944-4e1c-b863-23ceb4ee5330"
+            },
+    
+            "2b7d8db3-755e-47f2-86b6-92652f956e0b": {
+                "username": "Mike",
+                "tag": "@Mike",
+                "comment": "The story of the book is great. When i started to read it i immediately fell in love with some of the characters",
+                "_id": "2b7d8db3-755e-47f2-86b6-92652f956e0b"
+            }
         }
     }
 }

@@ -1,32 +1,25 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
-import { Book } from 'src/app/interfaces/book';
-import { Location } from '@angular/common';
+import { Comments } from 'src/app/interfaces/comments';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css']
 })
-export class BookDetailsComponent implements AfterViewInit {
+export class BookDetailsComponent implements OnInit{
 
-  book: Book[] = [];
+  commentsList: Comments[] | null = null;
 
-  constructor(private bookService: BooksService, private location: Location) {}
+  constructor(private bookService: BooksService) {}
 
-  getBookId(): string {
-   return this.location.path().split('details/')[1];
-  }
-
-  ngAfterViewInit(): void {
-    // this.bookService.getBookById(this.getBookId()).subscribe({
-    //   next: (value) => {
-    //     this.book = Object.values(value);
-    //   },
-
-    //   error: error => {
-    //     alert(error)
-    //   }
-    // })
+  ngOnInit(): void {
+    this.bookService.getComments().subscribe({
+      next: (value) => {
+        console.log(value)
+        this.commentsList = Object.values(value);
+      },
+      error: error =>  { throw new Error(error) }
+    })
   }
 }

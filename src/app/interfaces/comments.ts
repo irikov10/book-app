@@ -1,5 +1,5 @@
 export interface Comments {
     username: string;
-    usertag: string;
+    tag: string;
     comment: string;
 }
