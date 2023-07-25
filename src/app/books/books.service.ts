@@ -10,11 +10,13 @@ const apiUrl = environment.apiURL;
 })
 export class BooksService {
 
-  booksData: Book[] = [];
-
   constructor(private http: HttpClient) { }
 
   getBooks() {
     return this.http.get<Book[]>(apiUrl + '/books')
+  }
+
+  getComments() {
+    return this.http.get<Comment[]>(apiUrl + '/comments');
   }
 }

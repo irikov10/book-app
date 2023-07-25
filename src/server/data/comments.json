@@ -1,0 +1,24 @@
+{
+    "comments": {
+        "d77e803a-874e-45ea-9568-7b169367feda": {
+            "username": "John10",
+            "usertag": "@John Johnston",
+            "comment": "Great book!!!!",
+            "_id": "d77e803a-874e-45ea-9568-7b169367feda"
+        },
+
+        "a1451715-f537-4eb7-bc94-36cd43478fa1": {
+            "username": "Peter24",
+            "usertag": "@Peter McCarthy",
+            "comment": "My favorite book. I strongly recommend it. Very easy to read and to understand",
+            "_id": "a1451715-f537-4eb7-bc94-36cd43478fa1"
+        },
+
+        "2467c884-843c-4660-b6b6-98997b602203": {
+            "username": "Mike",
+            "usertag": "@Mike",
+            "comment": "The story of the book is great. When i started to read it i immediately fell in love with some of the characters",
+            "_id": "2467c884-843c-4660-b6b6-98997b602203"
+        }
+    }
+}
