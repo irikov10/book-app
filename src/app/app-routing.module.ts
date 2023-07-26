@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'books-collection', component: BookCollectionComponent },
   { path: 'favorite-books', component:  FavoriteBooksComponent },
-  { path: 'book-details', component: BookDetailsComponent },
+  { path: 'books-collection/details/:id', component: BookDetailsComponent },
   { path: 'edit-book', component: EditBookComponent },
   { path: 'add-book', component: AddBookComponent}
 ];
