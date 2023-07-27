@@ -15,14 +15,12 @@ export class BookDetailsComponent implements OnInit{
   bookInformation: Book[] | null = null ;
 
   constructor(private bookService: BooksService, private activeRoute: ActivatedRoute) {}
-
   
   ngOnInit(): void {
     const bookId = this.activeRoute.snapshot.paramMap.get('id');
     
     this.bookService.getBookById(bookId!).subscribe({
       next: (value) => {
-        console.log(value)
         this.bookInformation =[value]; 
         console.log(this.bookInformation)
       },

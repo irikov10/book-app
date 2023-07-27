@@ -3,29 +3,80 @@
         <div class="register-container">
 
             <form
-                class="register-form"
-                id="register"
+            class="register-form"
+            [formGroup]="form"
+            (ngSubmit)="register()"
             >
                 <h2>Register</h2>
                 <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                     <input
-                        type="email"
                         id="email"
+                        name="email"
+                        type="email"
+                        formControlName="email"
                         required
                     />
                     <label for="email">Email</label>
                 </div>
+
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+                </ng-container>
     
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input
-                        id="password"
-                        type="password"
-                        required
-                    />
-                    <label for="password">Password</label>
-                </div>
+                <ng-container formGroupName="passGroup">
+                    <div class="input-box">
+                        <input
+                            id="password"
+                            name="password"
+                            type="password"
+                            formControlName="password"
+                            required
+                        />
+                        <label for="password">Password</label>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+                    <p
+                      class="error"
+                      *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']"
+                    >
+                      Password is required!
+                    </p>
+                    <p
+                      class="error"
+                      *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']"
+                    >
+                      Password must be at least
+                      {{
+                        form.get('passGroup')?.get('password')?.errors?.['minlength']?.['requiredLength']
+                      }}
+                      characters!
+                    </p>
+                  </ng-container>
+
+                  <ng-container formGroupName="passGroup">
+                    <div class="input-box">
+                        <input
+                            id="rePassword"
+                            name="rePassword"
+                            type="password"
+                            formControlName="rePassword"
+                            required
+                        />
+                        <label for="rePassword">Repeat Password</label>
+                    </div>
+                  </ng-container>   
+
+                <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+                    <p
+                      class="error"
+                      *ngIf="form.get('passGroup')?.errors?.['matchPasswords'] ||
+                       form.get('passGroup')?.get('rePassword')?.errors?.['required']"
+                    >
+                      Repeat Password does not match password!
+                    </p>
+                  </ng-container>
     
                 <button type="submit" class="register-btn" value="Register">Register</button>
     

@@ -77,6 +77,7 @@ html {
     padding: 10px 20px;
     border: 2px solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .delete {
@@ -88,6 +89,7 @@ html {
     padding: 10px 20px;
     border: 2px solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* comment section */
