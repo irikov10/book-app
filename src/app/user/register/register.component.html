@@ -78,7 +78,8 @@
                     </p>
                   </ng-container>
     
-                <button type="submit" class="register-btn" value="Register">Register</button>
+                <button type="submit" class="register-btn" value="Register" *ngIf="form.invalid" disabled>Register</button>
+                <button type="submit" class="register-btn" value="Register" *ngIf="form.valid">Register</button>
     
                 <div class="login-register">
                     <h4>Have an account? <a routerLink="/login" class="login-link">Login</a></h4>

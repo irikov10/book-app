@@ -16,7 +16,7 @@
     top: 57%;
     transform: translate(-50%, -50%);;
     width: 400px;
-    height: 440px;
+    height: 500px;
     background: #82c482;
     border: 1px solid white;
     border-radius: 20px;
@@ -137,4 +137,9 @@
 .login-link:hover {
     color: blue;
     cursor: pointer;
+}
+
+.error {
+    color: red;
+    font-size: 13px;
 }

@@ -5,6 +5,8 @@
             <form
                 class="login-form"
                 id="login"
+                [formGroup]="form"
+                (ngSubmit)="login()"
             >
                 <h2>Login</h2>
                 <div class="input-box">
@@ -12,22 +14,48 @@
                     <input
                         type="email"
                         id="email"
+                        formControlName="email"
+                        email=""
                         required
                     />
                     <label for="email">Email</label>
                 </div>
+
+                <ng-container *ngIf="form.get('email')?.touched">
+                    <p class="error" *ngIf="form.get('email')?.errors?.['required']">Email is required!</p>
+                </ng-container>
     
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-lock"></i></span>
                     <input
                         id="password"
                         type="password"
+                        formControlName="password"
                         required
                     />
                     <label for="password">Password</label>
                 </div>
+
+                <ng-container *ngIf="form.get('password')?.touched">
+                    <p
+                      class="error"
+                      *ngIf="form.get('password')?.errors?.['required']"
+                    >
+                      Password is required!
+                    </p>
+                    <p
+                      class="error"
+                      *ngIf="form.get('password')?.errors?.['minlength']"
+                    >
+                      Password must be at least
+                      {{
+                        form.get('password')?.errors?.['minlength']?.['requiredLength']
+                      }}
+                      characters!
+                </ng-container>
     
-                <button type="submit" class="login-btn" value="Login">Login</button>
+                <button type="submit" class="login-btn" value="Login" *ngIf="form.invalid" disabled>Login</button>
+                <button type="submit" class="login-btn" value="Login" *ngIf="form.valid">Login</button>
     
                 <div class="login-register">
                     <h4>Don't have an account? <a routerLink="/register" class="register-link">Register</a></h4>
