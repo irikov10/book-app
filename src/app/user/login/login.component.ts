@@ -9,9 +9,9 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) {}
-
+  
   form = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
@@ -19,13 +19,12 @@ export class LoginComponent {
 
   login(): void {
 
+
     if(this.form.invalid) {
       return;
     }
 
     const { email, password } = this.form.value;
-
-    console.log(email, password)
 
     this.userService.login(email!, password!).subscribe(() => {
       this.router.navigate(['/'])

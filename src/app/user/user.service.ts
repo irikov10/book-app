@@ -22,6 +22,10 @@ export class UserService {
     });
   }
 
+  get isLogged(): boolean {
+    return !!this.user;
+  }
+
   register(email: string, password: string, rePassword: string) {
     return this.http
       .post<User>(`${this.apiURL}/register`, { email, password, rePassword })

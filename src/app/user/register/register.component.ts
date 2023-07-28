@@ -36,7 +36,7 @@ export class RegisterComponent {
     } = this.form.value
   
     this.userService.register(email!, password!, rePassword!).subscribe(() => {
-  
+
       this.router.navigate(['/'])
       
     })
