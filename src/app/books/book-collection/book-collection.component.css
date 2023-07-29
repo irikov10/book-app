@@ -17,6 +17,7 @@ html {
     flex-direction: row;
     gap: 40px;
     flex-wrap: wrap;
+    padding-bottom: 40px;
 }
 
 .wrapper {

@@ -5,16 +5,16 @@
 
         <ul>
             <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/books-collection">Books Collection</a></li>
+            <li><a routerLink="/books-collection"  routerLinkActive="active">Books Collection</a></li>
             <ul *ngIf="isLoggedIn">
-                <li><a routerLink="/favorite-books">Favorite Books</a></li>
+                <li><a routerLink="/favorite-books"  routerLinkActive="active">Favorite Books</a></li>
                 <li><a routerLink="/">Logout</a></li>
             </ul>
 
             <ul *ngIf="!isLoggedIn">
-                <li><a routerLink="/login">Login</a></li>
-                <li><a routerLink="/register">Register</a></li>
-                <li class="sign-in-button">Sign in</li>
+                <li><a routerLink="/login"  routerLinkActive="active">Login</a></li>
+                <li><a routerLink="/register"  routerLinkActive="active">Register</a></li>
+                <li><a routerLink="/register"  class="sign-in-button">Sign in</a></li>
             </ul>
         </ul>
     </nav>

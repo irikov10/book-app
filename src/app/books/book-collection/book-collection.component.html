@@ -23,7 +23,7 @@
 
     </div>
 
-    <div class="add-btn-wrapper">
+    <div class="add-btn-wrapper" *ngIf="isLoggedIn">
         <a routerLink="/add-book" class="add-btn">Add Book</a>
     </div>
 </main>
