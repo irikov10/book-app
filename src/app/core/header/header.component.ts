@@ -5,7 +5,7 @@ import { UserService } from 'src/app/user/user.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  styles: [ `li > a.active { background: red; padding: 10px; border-radius: 30px; }` ]
+  styles: [ `li > a.active { background: darkblue; padding: 5px 15px; border-radius: 30px; }` ]
 })
 export class HeaderComponent {
   

@@ -24,4 +24,8 @@ export class BooksService {
   getComments() {
     return this.http.get<Comments[]>(`${apiUrl}/books/comments`);
   }
+
+  postBook(title: string, author: string, image: string, information: string, summary: string, price: string) {
+    return this.http.post<Book>(`${apiUrl}/books`, { title, author, image, information, summary, price });
+  }
 }

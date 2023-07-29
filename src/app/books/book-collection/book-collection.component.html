@@ -15,7 +15,7 @@
 
             <a [routerLink]="'details/' + book._id" class="btn">
 
-                <div class="see-details-button">
+                <div class="see-details-button" *ngIf="isLoggedIn">
                     See Details
                 </div>
             </a>

@@ -4,6 +4,9 @@
 
             <form
                 class="add-book-form"
+                id="add-book-form"
+                [formGroup]="form"
+                (ngSubmit)="createBook()"
             >
                 <h2>Add Book</h2>
                 <div class="input-box">
@@ -11,6 +14,7 @@
                     <input
                         type="text"
                         id="title"
+                        formControlName="title"
                         required
                     />
                     <label for="title">Title</label>
@@ -20,6 +24,7 @@
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
                         type="text"
+                        formControlName="author"
                         required
                     />
                     <label for="author">Author</label>
@@ -29,6 +34,7 @@
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
                         type="text"
+                        formControlName="image"
                         required
                     />
                     <label for="image">Image</label>
@@ -38,6 +44,7 @@
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
                         type="text"
+                        formControlName="information"
                         required
                     />
                     <label for="information">Information</label>
@@ -47,6 +54,7 @@
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
                         type="text"
+                        formControlName="summary"
                         required
                     />
                     <label for="summary">Summary</label>
@@ -56,12 +64,14 @@
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
                         type="text"
+                        formControlName="price"
                         required
                     />
                     <label for="price">Price</label>
                 </div>
                 
-                <button type="submit" class="add-book-btn" value="Add-button">Add Button</button>
+                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.invalid" disabled>Add Book</button>
+                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.valid">Add Book</button>
     
             </form>
         </div>
