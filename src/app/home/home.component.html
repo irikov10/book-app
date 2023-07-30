@@ -13,7 +13,7 @@
                 </h4>
             </div>
 
-            <div class="buttons" *ngIf="!isLoggedIn">
+            <div class="buttons" *ngIf="!userService.isAuthenticated()">
                 <a routerLink="/login">Login</a>
                 <a routerLink="/register">Register</a>
             </div>

@@ -9,9 +9,5 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class HeaderComponent {
   
-  constructor(private userService: UserService) {}
-
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  constructor(public userService: UserService) {}
 }

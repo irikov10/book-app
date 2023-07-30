@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from "@angular/forms";
 import { UserService } from '../user.service';
 import { matchPasswords } from 'src/app/shared/validators/match-passwords';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -35,7 +36,7 @@ export class RegisterComponent {
       passGroup: { password, rePassword } = {}
     } = this.form.value
   
-    this.userService.register(email!, password!, rePassword!).subscribe(() => {
+    this.userService.register(email!, password!, rePassword!).pipe(finalize(() => this.form.reset)).subscribe(() => {
 
       this.router.navigate(['/'])
       

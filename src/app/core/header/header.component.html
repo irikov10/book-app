@@ -6,12 +6,12 @@
         <ul>
             <li><a routerLink="/">Home</a></li>
             <li><a routerLink="/books-collection"  routerLinkActive="active">Books Collection</a></li>
-            <ul *ngIf="isLoggedIn">
+            <ul *ngIf="userService.isAuthenticated()">
                 <li><a routerLink="/favorite-books"  routerLinkActive="active">Favorite Books</a></li>
-                <li><a routerLink="/">Logout</a></li>
+                <li><a (click)="userService.logout()">Logout</a></li>
             </ul>
 
-            <ul *ngIf="!isLoggedIn">
+            <ul *ngIf="!userService.isAuthenticated()">
                 <li><a routerLink="/login"  routerLinkActive="active">Login</a></li>
                 <li><a routerLink="/register"  routerLinkActive="active">Register</a></li>
                 <li><a routerLink="/register"  class="sign-in-button">Sign in</a></li>

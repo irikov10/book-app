@@ -12,11 +12,7 @@ import { UserService } from 'src/app/user/user.service';
 export class BookCollectionComponent implements OnInit {
   booksList: Book[] | null = null;
 
-  constructor(private bookService: BooksService, private userService: UserService) { }
-
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  constructor(private bookService: BooksService, public userService: UserService) { }
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe({

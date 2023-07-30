@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent {
 
     const { email, password } = this.form.value;
 
-    this.userService.login(email!, password!).subscribe(() => {
+    this.userService.login(email!, password!).pipe(finalize(() => this.form.reset)).subscribe(() => {
       this.router.navigate(['/'])
     })
   }

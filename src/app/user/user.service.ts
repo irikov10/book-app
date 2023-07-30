@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Subscription, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
-import { environment } from 'src/environments/environment';
+import { UserCreateService } from './user-create.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  apiURL = environment.apiURL;
 
-  private user$$ = new BehaviorSubject<User | undefined>(undefined);
-  public user$ = this.user$$.asObservable();
+  private user$$ = new BehaviorSubject<User | null>(null);
+  user$ = this.user$$.asObservable();
+
+  error: string = '';
 
   user: User | undefined;
-  subscription: Subscription;
 
-  constructor(private http: HttpClient) {
-    this.subscription = this.user$.subscribe((user) => {
-      this.user = user;
-    });
+  constructor( private createService: UserCreateService, private router: Router) {
+
+    const loggedUser = JSON.parse(localStorage.getItem('user') as string);
+    this.user$$.next(loggedUser as User);
+
   }
 
   get isLogged(): boolean {
@@ -27,13 +29,47 @@ export class UserService {
   }
 
   register(email: string, password: string, rePassword: string) {
-    return this.http
-      .post<User>(`${this.apiURL}/register`, { email, password, rePassword })
-      .pipe(tap((user) => this.user$$.next(user)));
+    return this.createService.onRegister( email, password, rePassword )
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.setError(error);
+        return throwError(() => error);
+      }),
+      tap((response) => {
+        this.setUser(response);
+      })
+    );
   }
 
   login(email: string, password: string) {
-    return this.http.post<User>(`${this.apiURL}/login`, { email, password })
-    .pipe(tap((user) => this.user$$.next(user)));
+    return this.createService.onLogin( email, password )
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.setError(error);
+        return throwError(() => error);
+      }),
+      tap((response) => {
+        this.setUser(response);
+      })
+    );
+  }
+
+  logout(): void {
+    this.user$$.next(null);
+    this.createService.onLogout();
+    this.router.navigate(['/login']);
+  }
+  
+  setError(error: HttpErrorResponse): void {
+    this.error = error.error.message;
+  }
+
+  setUser(user: User): void {
+    this.user$$.next(user);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('user');
   }
 }

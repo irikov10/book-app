@@ -15,7 +15,7 @@
 
             <a [routerLink]="'details/' + book._id" class="btn">
 
-                <div class="see-details-button" *ngIf="isLoggedIn">
+                <div class="see-details-button" *ngIf="userService.isAuthenticated()">
                     See Details
                 </div>
             </a>
@@ -23,7 +23,7 @@
 
     </div>
 
-    <div class="add-btn-wrapper" *ngIf="isLoggedIn">
+    <div class="add-btn-wrapper" *ngIf="userService.isAuthenticated()">
         <a routerLink="/add-book" class="add-btn">Add Book</a>
     </div>
 </main>
