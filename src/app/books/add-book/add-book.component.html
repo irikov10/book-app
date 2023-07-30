@@ -19,6 +19,12 @@
                     />
                     <label for="title">Title</label>
                 </div>
+
+                <ng-container *ngIf="form.get('title')?.touched">
+                    <div class="error" *ngIf="form.get('title')?.errors?.['required']">
+                        <p>Title is required!</p>
+                    </div>
+                </ng-container>
     
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
@@ -30,6 +36,15 @@
                     <label for="author">Author</label>
                 </div>
 
+                <ng-container *ngIf="form.get('author')?.touched">
+                    <div class="error" *ngIf="form.get('author')?.errors?.['required']">
+                        <p>Author is required!</p>
+                        <p *ngIf="form.get('author')?.errors?.['minlength']">
+                            Author name must have at least {{ form.get('author')?.errors?.['minlength']?.['requiredLength'] }}
+                        </p>
+                    </div>
+                </ng-container>
+
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
@@ -39,6 +54,12 @@
                     />
                     <label for="image">Image</label>
                 </div>
+
+                <ng-container *ngIf="form.get('image')?.touched">
+                    <div class="error" *ngIf="form.get('image')?.errors?.['required']">
+                        <p>ImageUrl is required!</p>
+                    </div>
+                </ng-container>
 
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
@@ -50,6 +71,15 @@
                     <label for="information">Information</label>
                 </div>
 
+                <ng-container *ngIf="form.get('information')?.touched">
+                    <div class="error" *ngIf="form.get('information')?.errors?.['required']">
+                        <p>Information about the book is required!</p>
+                        <p *ngIf="form.get('information')?.errors?.['maxLength']">
+                            Information text must not have more than {{ form.get('information')?.errors?.['maxLength']?.['requiredLength'] }} words
+                        </p>
+                    </div>
+                </ng-container>
+
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
@@ -60,6 +90,15 @@
                     <label for="summary">Summary</label>
                 </div>
 
+                <ng-container *ngIf="form.get('summary')?.touched">
+                    <div class="error" *ngIf="form.get('summary')?.errors?.['required']">
+                        <p>Information about the book is required!</p>
+                        <p *ngIf="form.get('summary')?.errors?.['maxLength']">
+                            Summary text must not have more than {{ form.get('summary')?.errors?.['maxLength']?.['requiredLength'] }} words
+                        </p>
+                    </div>
+                </ng-container>
+
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
@@ -69,6 +108,12 @@
                     />
                     <label for="price">Price</label>
                 </div>
+
+                <ng-container *ngIf="form.get('information')?.touched">
+                    <div class="error" *ngIf="form.get('author')?.errors?.['required']">
+                        <p>Price of the book is required!</p>
+                    </div>
+                </ng-container>
                 
                 <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.invalid" disabled>Add Book</button>
                 <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.valid">Add Book</button>

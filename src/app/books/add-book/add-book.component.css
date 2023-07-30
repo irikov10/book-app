@@ -92,3 +92,9 @@
     cursor: pointer;
     background-color: yellowgreen;
 }
+
+.error p {
+    color: red; 
+    font-size: 13px;
+    font-weight: bold;
+}
