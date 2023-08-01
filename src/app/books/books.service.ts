@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from '../interfaces/book';
 import { Comments } from '../interfaces/comments';
+import { BehaviorSubject, tap } from 'rxjs';
 
 const apiUrl = environment.apiURL;
 
@@ -10,6 +11,10 @@ const apiUrl = environment.apiURL;
   providedIn: 'root'
 })
 export class BooksService {
+
+  private book$$ = new BehaviorSubject<Book | undefined>(undefined);
+  public book$ = this.book$$.asObservable();
+  book: Book | undefined;
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +26,8 @@ export class BooksService {
     return this.http.get<Book>(`${apiUrl}/books/${id}`)
   }
 
-  getComments() {
-    return this.http.get<Comments[]>(`${apiUrl}/books/comments`);
+  getComments(bookId: string) {
+  return this.http.get<Comments[]>(`${apiUrl}/comments`);
   }
 
   postBook(title: string, author: string, image: string, information: string, summary: string, price: string) {
@@ -31,5 +36,10 @@ export class BooksService {
 
   deleteBook(id: string) {
     return this.http.delete<Book>(`${apiUrl}/books/${id}`);
+  }
+
+  editBook(id: string, title: string, author: string, information: string, summary: string, price: string) {
+    return this.http.put<Book>(`${apiUrl}/books/${id}`, { title, author, information, summary, price })
+    .pipe(tap((book) => this.book$$.next(book)));
   }
 }

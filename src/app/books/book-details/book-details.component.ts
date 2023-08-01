@@ -4,6 +4,7 @@ import { Comments } from 'src/app/interfaces/comments';
 import { Book } from 'src/app/interfaces/book';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-details',
@@ -15,8 +16,25 @@ export class BookDetailsComponent implements OnInit{
   commentsList: Comments[] | null = null;
   bookInformation: Book[] | null = null ;
   bookId: string | null = null;
+  bookDetails: Book = {
+    title: '',
+    author: '',
+    image: '',
+    information: '',
+    summary: '',
+    price: '',
+  } 
 
-  constructor(public bookService: BooksService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router) {}
+  constructor(public bookService: BooksService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router, private formBuilder: FormBuilder) {}
+  
+  form = this.formBuilder.group({
+    title: ['', [Validators.required]],
+    author: ['', [Validators.required, Validators.minLength(2)]], // Combined validators into one array
+    image: ['', [Validators.required]],
+    information: ['', [Validators.required, Validators.maxLength(255)]],
+    summary: ['', [Validators.required, Validators.maxLength(255)]],
+    price: ['', [Validators.required]],
+  })
   
   ngOnInit(): void {
     this.bookId = this.activeRoute.snapshot.paramMap.get('id');
@@ -24,12 +42,12 @@ export class BookDetailsComponent implements OnInit{
     this.bookService.getBookById(this.bookId!).subscribe({
 
       next: (value) => {
-        this.bookInformation =[value];
+        this.bookInformation = [value];
       },
       error: error =>  { alert(error) }
     });
 
-    this.bookService.getComments().subscribe({
+    this.bookService.getComments(this.bookId!).subscribe({
       next: (value) => {
         this.commentsList = Object.values(value);
       },

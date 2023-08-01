@@ -6,12 +6,15 @@
     <form
         id="edit-form"
         class="edit-form"
+        [formGroup]="form"
+        (ngSubmit)="onEdit()"
     >
 
         <div class="input-box">
             <label>Title:</label>
             <input type="text"
                 name="title"
+                formControlName="title"
             />
         </div>
 
@@ -20,6 +23,7 @@
             <input
                 type="text"
                 name="author"
+                formControlName="author"
             />
         </div>
 
@@ -27,6 +31,7 @@
             <label>Summary:</label>
             <input
                 type="text"
+                formControlName="summary"
                 name="summary"
             />
         </div>
@@ -34,8 +39,9 @@
         <div class="input-box">
             <label>Description:</label>
             <input
-                type="text"
-                name="description"
+            type="text"
+            name="information"
+            formControlName="information"
             />
         </div>
 
@@ -44,6 +50,7 @@
             <input
                 type="text"
                 name="price"
+                formControlName="price"
             />
         </div>
 
