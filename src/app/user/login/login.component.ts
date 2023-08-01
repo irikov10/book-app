@@ -10,7 +10,7 @@ import { finalize } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
+
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) {}
   
   form = this.formBuilder.group({
