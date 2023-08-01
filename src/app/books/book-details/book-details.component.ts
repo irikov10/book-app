@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
 import { Comments } from 'src/app/interfaces/comments';
 import { Book } from 'src/app/interfaces/book';
@@ -22,8 +22,9 @@ export class BookDetailsComponent implements OnInit{
     this.bookId = this.activeRoute.snapshot.paramMap.get('id');
     
     this.bookService.getBookById(this.bookId!).subscribe({
+
       next: (value) => {
-        this.bookInformation =[value]; 
+        this.bookInformation =[value];
       },
       error: error =>  { alert(error) }
     });

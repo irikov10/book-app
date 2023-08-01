@@ -10,6 +10,7 @@ html {
 
 #main {
     background: #6E2828;
+    min-height: 79vh;
 }
 
 .book-wrapper {
@@ -95,3 +96,20 @@ html {
     border: 2px solid black;
     border-radius: 10px;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .empty {
+    margin-top: 190px;
+    text-align: center;
+  }
+
+  .empty p {
+    font-size: 30px;
+    color: #CBD18F;
+  }

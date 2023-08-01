@@ -4,12 +4,12 @@
         <div class="wrapper" *ngFor="let book of booksList">
 
             <div class="image">
-                <img src="{{ book.img }}" alt="{{ book.title }}">
+                <img src="{{ book?.img }}" alt="{{ book?.title }}">
             </div>
 
             <div class="information">
-                <h3 class="title">{{ book.title }}</h3>
-                <h4 class="author">{{ book.author }}</h4>
+                <h3 class="title">{{ book?.title }}</h3>
+                <h4 class="author">{{ book?.author }}</h4>
 
             </div>
 
@@ -22,6 +22,12 @@
         </div>
 
     </div>
+
+    <div class="empty-container">
+        <div class="empty" *ngIf="booksList?.length === 0">
+            <p>There are no books in the collection</p>
+        </div>
+    </div>  
 
     <div class="add-btn-wrapper" *ngIf="userService.isAuthenticated()">
         <a routerLink="/add-book" class="add-btn">Add Book</a>
