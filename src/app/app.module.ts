@@ -8,8 +8,10 @@ import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { BooksModule } from './books/books.module';
-
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +24,13 @@ import { BooksModule } from './books/books.module';
     CoreModule,
     UserModule,
     BooksModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    library.add(fas);
+  }
+}

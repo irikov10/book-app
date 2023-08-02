@@ -3,6 +3,8 @@ import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faLock } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,8 @@ import { finalize } from 'rxjs';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  faEnvelope = faEnvelope;
+  faLock = faLock;
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) {}
   
   form = this.formBuilder.group({

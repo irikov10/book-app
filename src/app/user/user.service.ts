@@ -15,7 +15,7 @@ export class UserService {
 
   error: string = '';
 
-  user: User | undefined;
+  private user: User | null = null;
 
   constructor( private createService: UserCreateService, private router: Router) {
 
@@ -71,5 +71,10 @@ export class UserService {
 
   isAuthenticated(): boolean {
     return !!localStorage.getItem('user');
+  }
+
+  getLoggedInUserId(): string | null {
+    const loggedInUser: User | null = JSON.parse(localStorage.getItem('user')!);
+    return loggedInUser ? loggedInUser.id : null;
   }
 }
