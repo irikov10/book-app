@@ -8,6 +8,6 @@ export class AuthorizationService {
   constructor() { }
 
   isUserAuthorized(): boolean {
-    return !!localStorage.getItem('accessToken');
+    return !!localStorage.getItem('user');
   }
 }
