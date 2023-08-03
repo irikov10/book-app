@@ -15,7 +15,6 @@ export class BookDetailsComponent implements OnInit {
 
   loggedInUserId: string | null = null;
 
-  bookList: Book[] = [];
   commentsList: Comments[] | null = null;
   bookInformation: Book[] | null = null;
   bookId: string | null = null;

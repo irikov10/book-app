@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'books-collection', component: BookCollectionComponent },
   { path: 'favorite-books', component:  FavoriteBooksComponent, canActivate: [authGuard] },
   { path: 'books-collection/details/:id', component: BookDetailsComponent, canActivate: [authGuard] },
-  { path: 'edit-book', component: EditBookComponent, canActivate: [authGuard] },
+  { path: 'books-details/edit-book/:id', component: EditBookComponent, canActivate: [authGuard] },
   { path: 'add-book', component: AddBookComponent, canActivate: [authGuard]}
 ];
 

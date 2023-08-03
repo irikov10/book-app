@@ -21,7 +21,7 @@
             </div>
 
             <div class="buttons" *ngIf="isAuthorized()">
-                <a routerLink="/edit-book" class="edit">Edit</a>
+                <a [routerLink]="'/books-details/edit-book/' + book?._id" class="edit">Edit</a>
                 <a routerLink="/books-collection" class="delete" (click)="onDeleteBook(bookId!)">Delete</a>
             </div>
 
