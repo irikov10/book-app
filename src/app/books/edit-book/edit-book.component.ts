@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Book } from 'src/app/interfaces/book';
@@ -14,7 +14,7 @@ export class EditBookComponent implements OnInit {
   book!: Book;
   bookId: string | null = null;
 
-  constructor(private bookService: BooksService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private bookService: BooksService, private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   form = this.formBuilder.group({
     title: ['', [Validators.required]],
@@ -25,12 +25,15 @@ export class EditBookComponent implements OnInit {
     price: ['', [Validators.required]],
   });
 
-  
+
 
   ngOnInit(): void {
-    this.bookId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.bookId = this.activatedRoute.snapshot.paramMap.get('id') || '';
+
     this.bookService.getBookById(this.bookId!).subscribe((result) => {
       console.warn(result)
+      this.book = result;
+
       this.form = this.formBuilder.group({
         title: [result['title'], [Validators.required]],
         author: [result['author'], [Validators.required, Validators.minLength(2)]],
@@ -39,11 +42,34 @@ export class EditBookComponent implements OnInit {
         summary: [result['summary'], [Validators.required, Validators.maxLength(255)]],
         price: [result['price'], [Validators.required]],
       });
-      
-    })
-  } 
+    });
+    ;
+  }
 
   onEdit(): void {
-    
+
+    if (this.form.invalid) {
+      return;
+    }
+  
+    const editedBook: Book = {
+      title: this.form.value.title!, 
+      author: this.form.value.author!, 
+      image: this.form.value.image!, 
+      information: this.form.value.information!, 
+      summary: this.form.value.summary!, 
+      price: this.form.value.price!,
+      userId: this.book.userId
+    };
+  
+    const bookId = this.activatedRoute.snapshot.paramMap.get('id');
+  
+    if (!bookId) {
+      return;
+    }
+  
+    this.bookService.editBook(bookId, editedBook).subscribe(() => {
+      this.router.navigate([`books-collection/details/${bookId}`]);
+    });
   }
 }

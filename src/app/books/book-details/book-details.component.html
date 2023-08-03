@@ -7,21 +7,25 @@
         <div class="information">
             <div class="information">
                 <h3 class="title">{{ book?.title }}</h3>
-                <h4 class="author">{{ book?.author }}</h4>
+                <h4 class="author"><span>Written by</span> {{ book?.author }}</h4>
 
-                <p class="brief-info">
+                <div class="brief-info">
+                    <div>
+                        <p>Information about the book</p>
+                    </div>
                     {{ book?.information }}
-                </p>
+                </div>
 
-                <p class="brief-summary">
+                <div class="brief-summary">
+                    <p>Summary</p>
                     {{ book?.summary }}
-                </p>
+                </div>
 
-                <p class="price">Price: ${{ book?.price }}</p>
+                <p class="price"><span>Price:</span> ${{ book?.price }}</p>
             </div>
 
             <div class="buttons" *ngIf="isAuthorized()">
-                <a [routerLink]="'/books-details/edit-book/' + book?._id" class="edit">Edit</a>
+                <a [routerLink]="['/books-details/edit-book', bookId]" class="edit">Edit</a>
                 <a routerLink="/books-collection" class="delete" (click)="onDeleteBook(bookId!)">Delete</a>
             </div>
 

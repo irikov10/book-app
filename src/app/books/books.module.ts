@@ -6,7 +6,7 @@ import { BookCollectionComponent } from './book-collection/book-collection.compo
 import { FavoriteBooksComponent } from './favorite-books/favorite-books.component';
 import { RouterModule } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     BookCollectionComponent,

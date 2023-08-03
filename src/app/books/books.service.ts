@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from '../interfaces/book';
 import { Comments } from '../interfaces/comments';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 const apiUrl = environment.apiURL;
 
@@ -38,8 +38,7 @@ export class BooksService {
     return this.http.delete<Book>(`${apiUrl}/books/${id}`);
   }
 
-  editBook(id: string, title: string, author: string, information: string, summary: string, price: string) {
-    return this.http.put<Book>(`${apiUrl}/books/${id}`, { title, author, information, summary, price })
-    .pipe(tap((book) => this.book$$.next(book)));
+  editBook(bookId: string, data: Book) {
+    return this.http.put<Book>(`${apiUrl}/books/${bookId}`, data )
   }
 }
