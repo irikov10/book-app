@@ -71,7 +71,15 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookService.getComments(this.bookId!).subscribe({
       next: (value) => {
-        this.commentsList = Object.values(value);
+        console.log(value);
+
+        if(value !== null) {
+          this.commentsList = Object.values(value);
+          console.log(this.commentsList)
+        } else {
+          this.commentsList = [];
+        }
+
       },
       error: error => { throw new Error(error) }
     })

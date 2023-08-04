@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="comment-structure" *ngFor="let c of commentsList">
-                    <div class="author-information">
+                    <div class="author-information" *ngIf="commentsList?.length !== 0">
                         <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
     
                         <div class="author-details">
@@ -51,6 +51,10 @@
                     <div class="comment-information">
                         <p class="comment">{{ c.comment }}</p>
                     </div>
+                </div>
+
+                <div class="empty" *ngIf="commentsList?.length === 0">
+                    <p>Be the first one to comment :)</p>
                 </div>
             </div>
         </div>
