@@ -7,6 +7,7 @@ import { FavoriteBooksComponent } from './favorite-books/favorite-books.componen
 import { RouterModule } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommentSectionComponent } from './book-details/comment-section/comment-section.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FavoriteBooksComponent,
     BookDetailsComponent,
     EditBookComponent,
-    AddBookComponent
+    AddBookComponent,
+    CommentSectionComponent
   ],
   imports: [
     CommonModule,

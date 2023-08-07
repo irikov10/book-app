@@ -26,10 +26,6 @@ export class BooksService {
     return this.http.get<Book>(`${apiUrl}/books/${id}`)
   }
 
-  getComments(bookId: string) {
-  return this.http.get<Comments[]>(`${apiUrl}/comments/${bookId}`);
-  }
-
   postBook(title: string, author: string, image: string, information: string, summary: string, price: string) {
     return this.http.post<Book>(`${apiUrl}/books`, { title, author, image, information, summary, price });
   }
@@ -40,5 +36,14 @@ export class BooksService {
 
   editBook(bookId: string, data: Book) {
     return this.http.put<Book>(`${apiUrl}/books/${bookId}`, data )
+  }
+
+  
+  getComments(bookId: string) {
+    return this.http.get<Comments[]>(`${apiUrl}/comments/${bookId}`);
+  }
+
+  postComment(bookId: string, comment: string) {
+    return this.http.post<Comment>(`${apiUrl}/comments/${bookId}`, comment)
   }
 }

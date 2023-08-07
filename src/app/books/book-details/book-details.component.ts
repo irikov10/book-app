@@ -16,6 +16,7 @@ export class BookDetailsComponent implements OnInit {
   loggedInUserId: string | null = null;
 
   commentsList: Comments[] | null = null;
+  comments: [] = [];
   bookInformation: Book[] | null = null;
   bookId: string | null = null;
   bookOwnerId: string | null = null;
@@ -71,11 +72,10 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookService.getComments(this.bookId!).subscribe({
       next: (value) => {
-        console.log(value);
 
-        if(value !== null) {
+        if(value !== null) { 
           this.commentsList = Object.values(value);
-          console.log(this.commentsList)
+          this.commentsList.forEach(value => value.username === this.loggedInUserId);
         } else {
           this.commentsList = [];
         }
@@ -83,7 +83,6 @@ export class BookDetailsComponent implements OnInit {
       },
       error: error => { throw new Error(error) }
     })
-
   }
 
   onDeleteBook(bookId: string) {
@@ -99,6 +98,12 @@ export class BookDetailsComponent implements OnInit {
       error: (error) => {
         alert('Cannot delete the book because' + error)
       }
+    })
+  }
+
+  onPostComment() {
+    this.commentsList?.forEach(value => {
+      this.bookService.postComment(this.bookId!, value.comment).subscribe()
     })
   }
 
