@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from '../interfaces/book';
 import { Comments } from '../interfaces/comments';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 const apiUrl = environment.apiURL;
 
@@ -46,4 +46,10 @@ export class BooksService {
   postComment(bookId: string, comment: Comments) {
     return this.http.post<Comments>(`${apiUrl}/comments/${bookId}`, comment)
   }
+
+  // getCommentById(bookId: string, commentId: string): Observable<Comments> {
+  //   return this.http.get<Comments>(
+  //     `${apiUrl}/comments/${bookId}/${commentId}`
+  //   );
+  // }
 }

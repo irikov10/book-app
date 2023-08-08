@@ -69,20 +69,6 @@ export class BookDetailsComponent implements OnInit {
       },
       error: error => { alert(error) }
     });
-
-    this.bookService.getComments(this.bookId!).subscribe({
-      next: (value) => {
-
-        if(value !== null) { 
-          this.commentsList = Object.values(value);
-          this.commentsList.forEach(value => value.username === this.loggedInUserId);
-        } else {
-          this.commentsList = [];
-        }
-
-      },
-      error: error => { throw new Error(error) }
-    })
   }
 
   onDeleteBook(bookId: string) {

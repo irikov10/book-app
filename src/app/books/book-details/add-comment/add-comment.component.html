@@ -2,15 +2,15 @@
     <div class="wrapper">
         <div class="add-comment-container">
 
-            <form class="add-form" id="add">
+            <form class="add-form" id="add" #addComment="ngForm" (ngSubmit)="onSubmit(addComment)">
                 <h2>Add Comment</h2>
                 <div class="input-box">
-                    <input type="text" id="name" #inputName="ngModel" ngModel required />
-                    <label for="name">Name</label>
+                    <input type="text" name="name" #inputUsername="ngModel" ngModel required />
+                    <label for="username">Username</label>
                 </div>
 
                 <div class="input-box">
-                    <input type="text" id="comment" #inputComment="ngModel" ngModel required />
+                    <input type="text" name="comment" #inputComment="ngModel" ngModel required />
                     <label for="comment">Comment</label>
                 </div>
 

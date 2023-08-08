@@ -18,7 +18,14 @@ export class CommentSectionComponent implements OnInit {
   ngOnInit(): void {
     this.booksService.getComments(this.bookId!).subscribe({
       next: (commentData) => {
-        this.commentsList = Object.values(commentData);
+
+        if(commentData !== null) {
+          this.commentsList = Object.values(commentData);
+          console.log(this.commentsList)
+        } else {
+          this.commentsList = [];
+          return
+        }
       },
 
       error: (error) => {
