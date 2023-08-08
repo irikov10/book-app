@@ -1,0 +1,22 @@
+<main id="main">
+    <div class="wrapper">
+        <div class="add-comment-container">
+
+            <form class="add-form" id="add">
+                <h2>Add Comment</h2>
+                <div class="input-box">
+                    <input type="text" id="name" #inputName="ngModel" ngModel required />
+                    <label for="name">Name</label>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="comment" #inputComment="ngModel" ngModel required />
+                    <label for="comment">Comment</label>
+                </div>
+
+                <!-- <button type="submit" class="login-btn" value="Login" *ngIf="form.invalid" disabled>Login</button> -->
+                <button type="submit" class="add-comment-btn" value="Add-Comment">Add Comment</button>
+            </form>
+        </div>
+    </div>
+</main>

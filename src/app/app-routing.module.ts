@@ -9,6 +9,7 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 import { EditBookComponent } from './books/edit-book/edit-book.component';
 import { AddBookComponent } from './books/add-book/add-book.component';
 import { authGuard } from './shared/Auth Guard/authGuard';
+import { AddCommentComponent } from './books/book-details/add-comment/add-comment.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'favorite-books', component:  FavoriteBooksComponent, canActivate: [authGuard] },
   { path: 'books-collection/details/:id', component: BookDetailsComponent, canActivate: [authGuard] },
   { path: 'books-details/edit-book/:id', component: EditBookComponent, canActivate: [authGuard] },
-  { path: 'add-book', component: AddBookComponent, canActivate: [authGuard]}
+  { path: 'add-book', component: AddBookComponent, canActivate: [authGuard] },
+  { path: 'add-comment/:id', component: AddCommentComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

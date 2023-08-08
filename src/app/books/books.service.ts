@@ -43,7 +43,7 @@ export class BooksService {
     return this.http.get<Comments[]>(`${apiUrl}/comments/${bookId}`);
   }
 
-  postComment(bookId: string, comment: string) {
-    return this.http.post<Comment>(`${apiUrl}/comments/${bookId}`, comment)
+  postComment(bookId: string, comment: Comments) {
+    return this.http.post<Comments>(`${apiUrl}/comments/${bookId}`, comment)
   }
 }

@@ -8,8 +8,7 @@ import { RouterModule } from '@angular/router';
 import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentSectionComponent } from './book-details/comment-section/comment-section.component';
-
-
+import { AddCommentComponent } from './book-details/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -18,19 +17,21 @@ import { CommentSectionComponent } from './book-details/comment-section/comment-
     BookDetailsComponent,
     EditBookComponent,
     AddBookComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
+    AddCommentComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
     BookCollectionComponent,
     FavoriteBooksComponent,
     BookDetailsComponent,
-    EditBookComponent
-  ]
+    EditBookComponent,
+    AddCommentComponent,
+  ],
 })
 export class BooksModule { }

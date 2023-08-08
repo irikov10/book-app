@@ -101,12 +101,6 @@ export class BookDetailsComponent implements OnInit {
     })
   }
 
-  onPostComment() {
-    this.commentsList?.forEach(value => {
-      this.bookService.postComment(this.bookId!, value.comment).subscribe()
-    })
-  }
-
   isAuthorized(): boolean {
     return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
   }

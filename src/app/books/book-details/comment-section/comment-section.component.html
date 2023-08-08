@@ -1,14 +1,10 @@
+
 <div class="comment-section">
     <h2 class="comment-section-title">Comment Section</h2>
 
-    <div class="write-comment">
-        <img src="../../../assets/user_318-644325.avif" alt="user-image">
-        <input placeholder="Join the conversation" />
-        <button type="submit" class="send-comment">Send</button>
-    </div>
-
-    <div class="comment-structure" *ngFor="let c of commentsList">
-        <div class="author-information" *ngIf="commentsList.length">
+    <div>
+        <div class="comment-structure" *ngFor="let c of commentsList">
+        <div class="author-information">
             <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
 
             <div class="author-details">
@@ -20,9 +16,13 @@
         <div class="comment-information">
             <p class="comment">{{ c.comment }}</p>
         </div>
-    </div>
 
-    <div class="empty" *ngIf="!commentsList.length">
+        
+    </div>
+    
+    <button (click)="onRedirect()" class="add-comment-button">Add Comment</button>
+    
+    <div class="empty" *ngIf="commentsList.length === 0">
         <p>Be the first one to comment :)</p>
     </div>
 </div>

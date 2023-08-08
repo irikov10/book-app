@@ -15,7 +15,7 @@ export class UserService {
 
   error: string = '';
 
-  private user: User | null = null;
+  public user: User | null = null;
 
   constructor( private createService: UserCreateService, private router: Router) {
 
