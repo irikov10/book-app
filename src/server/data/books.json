@@ -57,12 +57,14 @@
                 "username": "John10",
                 "tag": "@John Johnston",
                 "comment": "Great book!!!!",
+                "_ownerId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45",
                 "_id": "8d70a6d5-9327-4083-9b4f-d04d41bc7c04"
             },
             "0c4b011a-4944-4e1c-b863-23ceb4ee5330": {
                 "username": "Peter24",
                 "tag": "@Peter McCarthy",
                 "comment": "My favorite book. I strongly recommend it. Very easy to read and to understand",
+                "_ownerId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45",
                 "_id": "0c4b011a-4944-4e1c-b863-23ceb4ee5330"
             }
         },
@@ -72,6 +74,7 @@
                 "username": "Mike",
                 "tag": "@Mike",
                 "comment": "The story of the book is great. When i started to read it i immediately fell in love with some of the characters",
+                "_ownerId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45",
                 "_id": "2b7d8db3-755e-47f2-86b6-92652f956e0b"
             }
         }

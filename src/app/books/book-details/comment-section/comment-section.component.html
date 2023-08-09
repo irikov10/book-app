@@ -16,7 +16,7 @@
                 <p class="comment">{{ c.comment }}</p>
             </div>
 
-            <div class="buttons">
+            <div class="buttons" *ngIf="checkOwner(c)">
                 <button class="delete-comment" (click)="deleteComment(c._id)">Delete</button>
                 <button class="edit-comment" (click)="editComment(c._id)">Edit</button>
             </div>

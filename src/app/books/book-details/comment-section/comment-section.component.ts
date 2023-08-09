@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../books.service';
 import { Comments } from 'src/app/interfaces/comments';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-comment-section',
@@ -12,8 +13,9 @@ export class CommentSectionComponent implements OnInit {
   commentsList!: Comments[];
   bookId = this.activatedRoute.snapshot.paramMap.get('id');
   comment: string = '';
+  loggedUser = this.userService.user?.id;
 
-  constructor(private booksService: BooksService, private activatedRoute: ActivatedRoute, private router: Router) {}
+  constructor(private booksService: BooksService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.booksService.getComments(this.bookId!).subscribe({
@@ -62,5 +64,11 @@ export class CommentSectionComponent implements OnInit {
       alert('Cant redirect to edit page');
       return
     }
+  }
+
+  checkOwner(comment: Comments): boolean {
+    console.log(this.loggedUser);
+    console.log(comment._ownerId)
+    return this.loggedUser !== null && this.loggedUser === comment._ownerId;
   }
 }
