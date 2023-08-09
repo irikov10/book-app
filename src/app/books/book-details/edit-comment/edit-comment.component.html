@@ -19,6 +19,15 @@
             />
         </div>
 
+        <div *ngIf="editForm.get('username')?.touched" class="errors-div">
+            <div class="error" *ngIf="editForm.get('username')?.errors?.['minlength']">
+              Minimum 3 characters are required!
+            </div>
+            <div class="error" *ngIf="editForm.get('username')?.errors?.['required']">
+              Name is required!
+            </div>
+          </div>
+
       
         <div class="input-box">
             <label>Comment:</label>
@@ -28,6 +37,15 @@
                 required
             />
         </div>
+
+        <div *ngIf="editForm.get('comment')?.touched" class="errors-div">
+            <div class="error" *ngIf="editForm.get('comment')?.errors?.['maxLength']">
+              Maximum 255 characters can be written!
+            </div>
+            <div class="error" *ngIf="editForm.get('comment')?.errors?.['required']">
+              Comment is required!
+            </div>
+          </div>
 
         <div class="create-edit-button">
             <button type="submit" value="Edit">Edit</button>

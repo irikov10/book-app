@@ -56,3 +56,10 @@ input {
     padding: 5px 15px;
     border-radius: 6px;
 }
+
+.errors-div .error {
+    position: relative;
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+}
