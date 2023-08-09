@@ -9,6 +9,7 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommentSectionComponent } from './book-details/comment-section/comment-section.component';
 import { AddCommentComponent } from './book-details/add-comment/add-comment.component';
+import { EditCommentComponent } from './book-details/edit-comment/edit-comment.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AddCommentComponent } from './book-details/add-comment/add-comment.comp
     AddBookComponent,
     CommentSectionComponent,
     AddCommentComponent,
+    EditCommentComponent,
   ],
   imports: [
     CommonModule,
