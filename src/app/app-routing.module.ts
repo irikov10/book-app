@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'books-details/edit-book/:id', component: EditBookComponent, canActivate: [authGuard] },
   { path: 'add-book', component: AddBookComponent, canActivate: [authGuard] },
   { path: 'add-comment/:id', component: AddCommentComponent, canActivate: [authGuard] },
-  { path: 'book-details/edit-comment/:bookId/:commentId', component: EditCommentComponent, canActivate: [authGuard] }
+  { path: 'books-collection/details/edit-comment/:bookId/:commentId', component: EditCommentComponent, canActivate: [authGuard] }
 ];
 
 @NgModule({

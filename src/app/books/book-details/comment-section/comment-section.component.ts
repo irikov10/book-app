@@ -57,7 +57,7 @@ export class CommentSectionComponent implements OnInit {
 
   editComment(id: string) {
     if(id) {
-      this.router.navigate(['/book-details/edit-comment/' + this.bookId + '/' + id ]);
+      this.router.navigate(['/books-collection/details/edit-comment/' + this.bookId + '/' + id ]);
     } else {
       alert('Cant redirect to edit page');
       return

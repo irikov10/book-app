@@ -1,5 +1,5 @@
 export interface Comments {
-    username?: string;
+    username: string;
     tag?: string;
     comment: string;
     _ownerId: string;

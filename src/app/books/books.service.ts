@@ -56,4 +56,8 @@ export class BooksService {
       `${apiUrl}/comments/${bookId}/${commentId}`
     );
   }
+
+  editComment(bookId: string, commentId: string, data: Comments) {
+    return this.http.put<Comments>(`${apiUrl}/comments/${bookId}/${commentId}`, data);
+  } 
 }

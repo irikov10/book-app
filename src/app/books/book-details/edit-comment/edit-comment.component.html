@@ -6,16 +6,15 @@
     <form
         id="edit-form"
         class="edit-form"
-        #editComment="ngForm"
-        (ngSubmit)="onSubmit(editComment)"
+        [formGroup]="editForm"
+        (ngSubmit)="onEdit()"
     >
 
         <div class="input-box">
-            <label>Name:</label>
+            <label>Username:</label>
             <input type="text"
-                name="name"
-                #inputName="ngModel"
-                ngModel
+                name="username"
+                formControlName="username"
                 required
             />
         </div>
@@ -25,8 +24,7 @@
             <label>Comment:</label>
             <input type="text"
                 name="comment"
-                #inputComment="ngModel"
-                ngModel
+                formControlName="comment"
                 required
             />
         </div>
