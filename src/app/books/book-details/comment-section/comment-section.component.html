@@ -1,28 +1,32 @@
-
 <div class="comment-section">
     <h2 class="comment-section-title">Comment Section</h2>
 
     <div>
         <div class="comment-structure" *ngFor="let c of commentsList">
-        <div class="author-information">
-            <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
+            <div class="author-information">
+                <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
 
-            <div class="author-details">
-                <h3 class="author-username">{{ c.username }}</h3>
-                <h4 class="user-tag">@{{ c.username }}</h4>
+                <div class="author-details">
+                    <h3 class="author-username">{{ c.username }}</h3>
+                    <h4 class="user-tag">@{{ c.username }}</h4>
+                </div>
             </div>
+
+            <div class="comment-information">
+                <p class="comment">{{ c.comment }}</p>
+            </div>
+
+            <div class="buttons">
+                <button class="delete-comment" (click)="deleteComment(comment._id)">Delete</button>
+                <a routerLink="" class="edit-comment">Edit</a>
+            </div>
+
+
         </div>
 
-        <div class="comment-information">
-            <p class="comment">{{ c.comment }}</p>
+        <div class="empty" *ngIf="!commentsList.length">
+            <p>Be the first one to comment :)</p>
         </div>
 
-        
+        <button (click)="onRedirect()" class="add-comment-button">Add Comment</button>
     </div>
-
-    <div class="empty" *ngIf="!commentsList.length">
-        <p>Be the first one to comment :)</p>
-    </div>
-    
-    <button (click)="onRedirect()" class="add-comment-button">Add Comment</button>
-</div>

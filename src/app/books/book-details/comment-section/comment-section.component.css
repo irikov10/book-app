@@ -71,3 +71,30 @@
     font-size: 30px;
     margin-bottom: 20px;
 }
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.delete-comment {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: brown;
+    color: white;
+}
+
+.edit-comment {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #3e363f;
+    background-color: yellowgreen;
+}
