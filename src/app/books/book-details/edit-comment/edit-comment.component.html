@@ -1,1 +1,41 @@
-<p>edit-comment works!</p>
+<main id="main">
+    <div class="edit-comment">
+
+    <h1>Edit Comment</h1>
+
+    <form
+        id="edit-form"
+        class="edit-form"
+        #editComment="ngForm"
+        (ngSubmit)="onSubmit(editComment)"
+    >
+
+        <div class="input-box">
+            <label>Name:</label>
+            <input type="text"
+                name="name"
+                #inputName="ngModel"
+                ngModel
+                required
+            />
+        </div>
+
+      
+        <div class="input-box">
+            <label>Comment:</label>
+            <input type="text"
+                name="comment"
+                #inputComment="ngModel"
+                ngModel
+                required
+            />
+        </div>
+
+        <div class="create-edit-button">
+            <button type="submit" value="Edit">Edit</button>
+        </div>
+    </form>
+</div>
+</main>
+
+

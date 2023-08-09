@@ -47,9 +47,13 @@ export class BooksService {
     return this.http.post<Comments>(`${apiUrl}/comments/${bookId}`, comment)
   }
 
-  // getCommentById(bookId: string, commentId: string): Observable<Comments> {
-  //   return this.http.get<Comments>(
-  //     `${apiUrl}/comments/${bookId}/${commentId}`
-  //   );
-  // }
+  deleteCommentById(id: string, bookId: string) {
+    return this.http.delete<Comments>(`${apiUrl}/comments/${bookId}/${id}`)
+  }
+
+  getCommentById(bookId: string, commentId: string): Observable<Comments> {
+    return this.http.get<Comments>(
+      `${apiUrl}/comments/${bookId}/${commentId}`
+    );
+  }
 }

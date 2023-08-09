@@ -11,7 +11,7 @@
 
 .wrapper {
     background-color: #6E2828;
-    min-height: 90vh;
+    /* min-height: 90vh; */
 }
 
 .add-comment-container {

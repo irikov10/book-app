@@ -86,15 +86,17 @@
     font-size: 15px;
     font-weight: bold;
     background-color: brown;
+    cursor: pointer;
     color: white;
 }
 
 .edit-comment {
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-size: 17px;
     font-weight: bold;
     color: #3e363f;
     background-color: yellowgreen;
+    cursor: pointer;
 }
