@@ -37,4 +37,21 @@ export class CommentSectionComponent implements OnInit {
   onRedirect() {
     this.router.navigate(['/add-comment', this.bookId]);
   }
+
+  deleteComment(id: string) {
+    if(id) {
+      this.booksService.deleteCommentById(id, this.bookId!).subscribe({
+        next: () => {
+          this.commentsList = this.commentsList?.filter((comment) => comment._id !== id);
+        },
+
+        error: (error) => {
+          throw new Error(`Cant delete the book because ${error.message}`);
+        }
+      })
+    } else {
+      alert('The comment does not have an id');
+      return
+    }
+  }
 }
