@@ -7,5 +7,6 @@ export interface Book {
     price: string;
     image: string;
     _id?: string;
+    _ownerId: string;
     userId: string;
 }

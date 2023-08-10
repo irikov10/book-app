@@ -29,6 +29,7 @@ export class BookDetailsComponent implements OnInit {
     information: '',
     summary: '',
     price: '',
+    _ownerId: '',
     userId: '',
   }
 
@@ -57,6 +58,7 @@ export class BookDetailsComponent implements OnInit {
         information: book.information,
         summary: book.summary,
         price: book.price,
+        _ownerId: book._ownerId,
         userId: book.userId,
       }
 
@@ -97,8 +99,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   isAuthorized(): boolean {
-    console.log(this.loggedInUserId)
-    console.log(this.bookOwnerId)
-    return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
+    return this.loggedInUserId !== null && this.loggedInUserId === this.bookDetails._ownerId;
   }
 }

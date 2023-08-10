@@ -67,8 +67,6 @@ export class CommentSectionComponent implements OnInit {
   }
 
   checkOwner(comment: Comments): boolean {
-    console.log(this.loggedUser);
-    console.log(comment._ownerId)
     return this.loggedUser !== null && this.loggedUser === comment._ownerId;
   }
 }
