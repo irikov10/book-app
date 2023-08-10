@@ -24,6 +24,10 @@
                 <p class="price"><span>Price:</span> ${{ book?.price }}</p>
             </div>
 
+            <div class="favorite-button">
+                <button class="favorite" (click)="addToFavorites()"> Mark as favorite</button>
+            </div>
+
             <div class="buttons" *ngIf="isAuthorized()">
                 <a [routerLink]="['/books-details/edit-book', bookId]" class="edit">Edit</a>
                 <a routerLink="/books-collection" class="delete" (click)="onDeleteBook(bookId!)">Delete</a>

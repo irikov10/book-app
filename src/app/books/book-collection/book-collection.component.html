@@ -13,10 +13,12 @@
 
             </div>
 
-                <div class="buttons" *ngIf="userService.isAuthenticated()">
-                    <a [routerLink]="'details/' + book._id" class="btn" class="see-details-button">See Details</a>
-                    <button class="favorite">Mark as favorite</button>
+            <a [routerLink]="'details/' + book._id" class="btn">
+
+                <div class="see-details-button" *ngIf="userService.isAuthenticated()">
+                    See Details
                 </div>
+            </a>
         </div>
 
     </div>

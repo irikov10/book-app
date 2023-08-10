@@ -13,13 +13,15 @@ export class FavoriteBooksComponent implements OnInit {
   constructor(private booksService: BooksService) {}
 
   ngOnInit(): void {
-    this.booksService.getBooks().subscribe({
-      next: (value) => {
-        this.booksCollection = Object.values(value).slice(0, 3);
-      },
-      error: (error) => {
-        alert(error);
-      },
-    });
+    // this.booksService.getBooks().subscribe({
+    //   next: (value) => {
+    //     this.booksCollection = Object.values(value).slice(0, 3);
+    //   },
+    //   error: (error) => {
+    //     alert(error);
+    //   },
+    // });
+
+    this.booksCollection = this.booksService.getFavoriteBooks();
   }
 } 

@@ -15,6 +15,7 @@ export class BooksService {
   private book$$ = new BehaviorSubject<Book | undefined>(undefined);
   public book$ = this.book$$.asObservable();
   book: Book | undefined;
+  private favoriteBooks: Book[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -60,4 +61,12 @@ export class BooksService {
   editComment(bookId: string, commentId: string, data: Comments) {
     return this.http.put<Comments>(`${apiUrl}/comments/${bookId}/${commentId}`, data);
   } 
+
+  addToFavorites(book: Book) {
+    this.favoriteBooks.push(book);
+  }
+
+  getFavoriteBooks() {
+    return this.favoriteBooks;
+  }
 }

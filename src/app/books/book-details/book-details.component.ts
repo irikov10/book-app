@@ -87,6 +87,13 @@ export class BookDetailsComponent implements OnInit {
     })
   }
 
+  
+  addToFavorites() {
+    console.log(this.bookDetails)
+    this.bookService.addToFavorites(this.bookDetails!);
+    this.router.navigate(['/favorite-books'])
+  }
+
   isAuthorized(): boolean {
     return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
   }
