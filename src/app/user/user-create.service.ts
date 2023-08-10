@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { User } from '../interfaces/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -10,18 +10,33 @@ import { environment } from 'src/environments/environment';
 
 
 export class UserCreateService {
-  apiUrl = environment.apiURL;
-  private user = JSON.parse(localStorage.getItem('user') as string);
-  private accessToken = this.user ? this.user.accessToken : null;
+  authUrl = environment.authURL;
+  private accessToken: string | null = null; 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.initializeAccessToken(); 
+  }
+
+  private initializeAccessToken(): void {
+    const user = JSON.parse(localStorage.getItem('user') as string);
+    this.accessToken = user ? user.accessToken : null;
+  }
 
   onLogin(email: string, password: string): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/login`, { email, password })
+    return this.http.post<User>(`${this.authUrl}/login`, { email, password })
+      .pipe(
+        tap((response: User) => {
+          this.accessToken = response.accessToken;
+        })
+      );
   }
 
   onRegister(email: string, password: string, rePassword: string): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/register`, { email, password, rePassword })
+    return this.http.post<User>(`${this.authUrl}/register`, { email, password, rePassword }).pipe(
+      tap((response: User) => {
+        this.accessToken = response.accessToken;
+      })
+    );
   }
 
   onLogout(): void {
@@ -29,7 +44,7 @@ export class UserCreateService {
       'X-Authorization': `${this.accessToken}`
     });
 
-    this.http.get<User>(`${this.apiUrl}/logout`, { headers });
-    localStorage.clear()
+    this.http.get<User>(`${this.authUrl}/logout`, { headers });
+    localStorage.clear();
   }
 }

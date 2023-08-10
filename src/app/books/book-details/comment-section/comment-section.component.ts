@@ -13,7 +13,7 @@ export class CommentSectionComponent implements OnInit {
   commentsList!: Comments[];
   bookId = this.activatedRoute.snapshot.paramMap.get('id');
   comment: string = '';
-  loggedUser = this.userService.user?.id;
+  loggedUser = this.userService.user?._id;
 
   constructor(private booksService: BooksService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {}
 

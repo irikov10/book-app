@@ -12,9 +12,8 @@
             </ul>
 
             <ul *ngIf="!userService.isAuthenticated()">
-                <li><a routerLink="/login"  routerLinkActive="active">Login</a></li>
                 <li><a routerLink="/register"  routerLinkActive="active">Register</a></li>
-                <li><a routerLink="/register"  class="sign-in-button">Sign in</a></li>
+                <li><a routerLink="/login"  class="sign-in-button">Sign in</a></li>
             </ul>
         </ul>
     </nav>

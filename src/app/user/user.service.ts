@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { User } from '../interfaces/user';
 import { UserCreateService } from './user-create.service';
@@ -75,6 +75,6 @@ export class UserService {
 
   getLoggedInUserId(): string | null {
     const loggedInUser: User | null = JSON.parse(localStorage.getItem('user')!);
-    return loggedInUser ? loggedInUser.id : null;
+    return loggedInUser ? loggedInUser._id : null;
   }
 }

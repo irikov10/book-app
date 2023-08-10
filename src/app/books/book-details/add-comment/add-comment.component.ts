@@ -24,7 +24,7 @@ export class AddCommentComponent {
     const data: Comments = {
       username: form.value.name,
       comment: form.value.comment,
-      _ownerId: this.userService.user?.id as string,
+      _ownerId: this.userService.user?._id as string,
       _id: uuid(),
     }
 
