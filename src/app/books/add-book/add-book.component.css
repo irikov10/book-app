@@ -7,16 +7,16 @@
 
 .wrapper {
     background-color: #6E2828;
-    min-height: 100vh;
+    min-height: 120vh;
 }
 
 .add-book-container {
     position: absolute;
     left: 50%;
-    top: 63%;
+    top: 69%;
     transform: translate(-50%, -50%);
     width: 540px;
-    height: 700px;
+    height: 800px;
     background: #82c482;
     border: 1px solid white;
     border-radius: 20px;
@@ -24,6 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 10px; 
 }
 
 /* .add-book-container {

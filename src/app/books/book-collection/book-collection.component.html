@@ -3,6 +3,15 @@
     <div class="book-wrapper">
         <div class="wrapper" *ngFor="let book of booksList">
 
+            <div class="author-information">
+                <img src="../../../assets/user_318-644325.avif" alt="user-image" class="user-image">
+    
+                <div class="author-details">
+                    <h3 class="author-username">{{ book.username }}</h3>
+                    <h4 class="user-tag">@{{ book.username }}</h4>
+                </div>
+            </div>
+
             <div class="image">
                 <img src="{{ book?.image }}" alt="{{ book?.title }}">
             </div>

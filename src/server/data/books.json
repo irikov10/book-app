@@ -1,6 +1,7 @@
 {
     "books": {
         "6e143aa0-eaed-4ed0-a176-f60c9f11b1f0": {
+            "username": "DemonSlayer",
             "title": "Tom Sawyer",
             "author": "Mark Twain",
             "image": "https://m.media-amazon.com/images/I/71l6aEDzaFS._AC_UF1000,1000_QL80_.jpg",
@@ -11,6 +12,7 @@
             "userId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45"
         },
         "bc7375d4-3034-43cc-a9d8-c79bc9101e74": {
+            "username": "Gosho",
             "title": "Jane Eyre",
             "author": "Charlotte Brontë",
             "image": "https://m.media-amazon.com/images/I/61c1BiBgvdL._AC_UF1000,1000_QL80_.jpg",
@@ -21,6 +23,7 @@
             "userId": "06a23595-4c2b-4f29-937d-427103617c12"
         },
         "257961fc-85a3-47aa-97e7-af3da638dd6e": {
+            "username": "Drago",
             "title": "Fire and Blood",
             "author": "George R.R. Martin",
             "image": "https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/f/i/2ba1f71e415bcba3db0748efb7440a30/fire-and-blood-30.jpg",
@@ -31,6 +34,7 @@
             "userId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45"
         },
         "676d9823-019c-47b8-8e3f-99418f67e8a8": {
+            "username": "Mariq10",
             "title": "The Adventures of Sherlock Holmes",
             "author": "Arthur Conan Doyle",
             "image": "https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/h/717fb7f7ec59b09b79f1659e7d856a87/the-adventures-of-sherlock-holmes-alma-classics-30.jpg",
@@ -41,6 +45,7 @@
             "userId": "96f0adcb-dc3d-4b55-83dd-637ef6473b45"
         },
         "f859f3e9-a3ca-4ac1-8937-b374792c9548": {
+            "username": "PenchoM12",
             "title": "The Witcher - The last wish",
             "author": "Andrzej Sapkowski",
             "image": "https://m.media-amazon.com/images/I/81MTXlALp+L._AC_UF1000,1000_QL80_.jpg",

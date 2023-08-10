@@ -102,14 +102,48 @@ html {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-  }
-  
-  .empty {
+}
+
+.empty {
     margin-top: 190px;
     text-align: center;
-  }
+}
 
-  .empty p {
+.empty p {
     font-size: 30px;
     color: #CBD18F;
-  }
+}
+
+.author-information {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+    padding-left: 20px;
+    padding-top: 10px;
+    background-color: rgba(165, 42, 42, 0.3);
+    width: 94.9%;
+    padding-bottom: 10px;
+    
+}
+
+.author-details {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+}
+
+.author-username {
+    text-align: left;
+    font-size: 20px;
+    color: #a6a62b;
+}
+
+.user-tag {
+    font-size: 15px;
+    color: greenyellow;
+}
+
+.user-image{
+    width: 50px;
+}

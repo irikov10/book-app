@@ -7,7 +7,13 @@
         <div class="information">
             <div class="information">
                 <h3 class="title">{{ book?.title }}</h3>
-                <h4 class="author"><span>Written by</span> {{ book?.author }}</h4>
+                <div class="author">
+                    <div>
+                        <p>Written by</p>
+                    </div>
+
+                    {{ book.author }}
+                </div>
 
                 <div class="brief-info">
                     <div>

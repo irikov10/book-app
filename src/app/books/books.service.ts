@@ -27,8 +27,8 @@ export class BooksService {
     return this.http.get<Book>(`${apiUrl}/books/${id}`)
   }
 
-  postBook(title: string, author: string, image: string, information: string, summary: string, price: string) {
-    return this.http.post<Book>(`${apiUrl}/books`, { title, author, image, information, summary, price });
+  postBook(username: string, title: string, author: string, image: string, information: string, summary: string, price: string) {
+    return this.http.post<Book>(`${apiUrl}/books`, { username, title, author, image, information, summary, price });
   }
 
   deleteBook(id: string) {

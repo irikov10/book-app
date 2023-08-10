@@ -22,6 +22,7 @@ export class BookDetailsComponent implements OnInit {
   bookOwnerId: string | null = null;
 
   bookDetails: Book = {
+    username: '',
     title: '',
     author: '',
     image: '',
@@ -49,6 +50,7 @@ export class BookDetailsComponent implements OnInit {
 
     this.bookService.getBookById(this.bookId!).subscribe((book) => {
       this.bookDetails = {
+        username: book.username,
         title: book.title,
         author: book.author,
         image: book.image,
@@ -95,6 +97,8 @@ export class BookDetailsComponent implements OnInit {
   }
 
   isAuthorized(): boolean {
+    console.log(this.loggedInUserId)
+    console.log(this.bookOwnerId)
     return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
   }
 }

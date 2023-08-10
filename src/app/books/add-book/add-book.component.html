@@ -9,6 +9,29 @@
                 (ngSubmit)="createBook()"
             >
                 <h2>Add Book</h2>
+
+                <div class="input-box">
+                    <!-- <span class="icon"><i class="fa-solid fa-envelope"></i></span> -->
+                    <input
+                        type="text"
+                        id="username"
+                        formControlName="username"
+                        minLength="3"
+                        required
+                    />
+                    <label for="username">Username</label>
+                </div>
+
+                <ng-container *ngIf="form.get('username')?.touched">
+                    <div class="error" *ngIf="form.get('username')?.errors?.['required']">
+                        <p>Username is required!</p>
+                        <p class="error" *ngIf="form.get('username')?.errors?.['minLength']">
+                            Username must have at least 3 characters!
+                        </p>
+                    </div>
+                    
+                </ng-container>
+
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-envelope"></i></span> -->
                     <input
@@ -31,6 +54,7 @@
                     <input
                         type="text"
                         formControlName="author"
+                        minLength="2"
                         required
                     />
                     <label for="author">Author</label>
@@ -39,8 +63,8 @@
                 <ng-container *ngIf="form.get('author')?.touched">
                     <div class="error" *ngIf="form.get('author')?.errors?.['required']">
                         <p>Author is required!</p>
-                        <p *ngIf="form.get('author')?.errors?.['minlength']">
-                            Author name must have at least {{ form.get('author')?.errors?.['minlength']?.['requiredLength'] }}
+                        <p *ngIf="form.get('author')?.errors?.['minLength']">
+                            Author name must have at least {{ form.get('author')?.errors?.['minLength'] }}
                         </p>
                     </div>
                 </ng-container>

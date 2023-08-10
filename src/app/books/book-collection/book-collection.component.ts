@@ -18,6 +18,7 @@ export class BookCollectionComponent implements OnInit {
   ngOnInit(): void {
     this.bookService.getBooks().subscribe({
       next: (value) => {
+        console.log(value)
         this.booksList = Object.values(value);
       },
       error: error => { throw new Error(error) }
