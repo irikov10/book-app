@@ -1,4 +1,4 @@
-![image](https://github.com/irikov10/book-app/assets/106108675/c5851afb-d6f3-4dd9-8c98-17b3e121df3b)# BookApp
+BookApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
