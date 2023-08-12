@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  private user$$ = new BehaviorSubject<User | null>(null);
-  user$ = this.user$$.asObservable();
+  private _user$ = new BehaviorSubject<User | null>(null);
+  user$ = this._user$.asObservable();
 
   error: string = '';
 
@@ -20,7 +20,7 @@ export class UserService {
   public loggedUser = JSON.parse(localStorage.getItem('user') as string);
   constructor( private createService: UserCreateService, private router: Router) {
 
-    this.user$$.next(this.loggedUser as User);
+    this._user$.next(this.loggedUser as User);
 
   }
 
@@ -55,7 +55,7 @@ export class UserService {
   }
 
   logout(): void {
-    this.user$$.next(null);
+    this._user$.next(null);
     this.createService.onLogout();
     this.router.navigate(['/login']);
   }
@@ -65,7 +65,7 @@ export class UserService {
   }
 
   setUser(user: User): void {
-    this.user$$.next(user);
+    this._user$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
   }
 

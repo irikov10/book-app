@@ -23,6 +23,7 @@ export class CommentSectionComponent implements OnInit {
 
         if(commentData !== null) {
           this.commentsList = Object.values(commentData);
+
         } else {
           this.commentsList = [];
           return
@@ -66,6 +67,7 @@ export class CommentSectionComponent implements OnInit {
   }
 
   checkOwner(comment: Comments): boolean {
+    console.log(comment)
     console.log(comment._ownerId)
     console.log(this.loggedUser)
     return this.loggedUser !== null && this.loggedUser === comment._ownerId;

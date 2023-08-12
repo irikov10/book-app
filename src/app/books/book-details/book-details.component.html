@@ -1,12 +1,16 @@
 <main id="main">
     <div class="details-wrapper" *ngFor="let book of bookInformation">
-        <div class="image">
-            <img src="{{ book?.image }}" alt="{{ book?.title }}" />
-        </div>
 
         <div class="information">
-            <div class="information">
-                <h3 class="title">{{ book?.title }}</h3>
+
+            <div class="information-book">
+
+                <div class="image">
+                    <img src="{{ book?.image }}" alt="{{ book?.title }}" />
+                </div>
+
+                <div class="text-wrapper">
+                    <h3 class="title">{{ book?.title }}</h3>
                 <div class="author">
                     <div>
                         <p>Written by</p>
@@ -28,6 +32,7 @@
                 </div>
 
                 <p class="price"><span>Price:</span> ${{ book?.price }}</p>
+                </div>
             </div>
 
             <div class="favorite-button">

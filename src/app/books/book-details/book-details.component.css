@@ -21,6 +21,7 @@ html {
 .image img {
     width: 400px;
     height: 500px;
+    object-fit: contain;
     position: relative;
     left: 38%;
     margin-top: 40px;
@@ -33,6 +34,19 @@ html {
     width: 1200px;
     position: relative;
     left: 6.5%;
+}
+
+.information-book {
+    display: flex;
+    flex-direction: row;
+    width: 1300px;
+}
+
+.text-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-left: 200px;
+    padding-top: 100px;
 }
 
 .title {
