@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { BooksService } from '../books.service';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { Book } from 'src/app/interfaces/book';
+import { UserService } from 'src/app/user/user.service';
+import {v4 as uuid } from 'uuid'
 
 @Component({
   selector: 'app-add-book',
@@ -10,25 +13,27 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class AddBookComponent{
 
-  constructor(private bookService: BooksService, private router: Router, private formBuilder: FormBuilder) {}
+  constructor(private bookService: BooksService, private router: Router, private userService: UserService) {}
 
-  form = this.formBuilder.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
-    title: ['', [Validators.required]],
-    author: ['', [Validators.required, Validators.minLength(2)]],
-    image: ['', [Validators.required]],
-    information: ['', [Validators.required, Validators.maxLength(255)]],
-    summary: ['', [Validators.required, Validators.maxLength(255)]],
-    price: ['', [Validators.required]],
-  })
-
-  createBook(): void {
-    if(this.form.invalid) {
+  createBook(form: NgForm): void {
+    if(form.invalid) {
       return;
     }
 
-    const { username, title, author, image, information, summary, price } = this.form.value;
-    this.bookService.postBook(username!, title!, author!, image!, information!, summary!, price!).subscribe(() => {
+    const data: Book = {
+      username: form.value.username,
+      title: form.value.title,
+      author: form.value.author,
+      image: form.value.image,
+      information: form.value.information,
+      summary: form.value.summary,
+      price: form.value.price,
+      _ownerId: this.userService.loggedUser?._id as string,
+      _id: uuid()
+    }
+
+    // const { username, title, author, image, information, summary, price } = this.form.value;
+    this.bookService.postBook(data).subscribe(() => {
         this.router.navigate(['/books-collection'])
     })
   }

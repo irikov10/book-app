@@ -20,50 +20,27 @@ export class BookDetailsComponent implements OnInit {
   bookInformation: Book[] | null = null;
   bookId: string | null = null;
   bookOwnerId: string | null = null;
+  book: Book | null = null;
 
-  bookDetails: Book = {
-    username: '',
-    title: '',
-    author: '',
-    image: '',
-    information: '',
-    summary: '',
-    price: '',
-    _ownerId: '',
-    userId: '',
-  }
+  constructor(public bookService: BooksService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
-  constructor(public bookService: BooksService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
-
-  form = this.formBuilder.group({
-    title: ['', [Validators.required]],
-    author: ['', [Validators.required, Validators.minLength(2)]], // Combined validators into one array
-    image: ['', [Validators.required]],
-    information: ['', [Validators.required, Validators.maxLength(255)]],
-    summary: ['', [Validators.required, Validators.maxLength(255)]],
-    price: ['', [Validators.required]],
-  })
+  // loggedUser = this.userService.loggedUser?._id;
 
   ngOnInit(): void {
     this.loggedInUserId = this.userService.getLoggedInUserId();
 
     this.bookId = this.activeRoute.snapshot.paramMap.get('id');
 
-    this.bookService.getBookById(this.bookId!).subscribe((book) => {
-      this.bookDetails = {
-        username: book.username,
-        title: book.title,
-        author: book.author,
-        image: book.image,
-        information: book.information,
-        summary: book.summary,
-        price: book.price,
-        _ownerId: book._ownerId,
-        userId: book.userId,
-      }
-
-
-      this.bookOwnerId = book.userId;
+    this.bookService.getBookById(this.bookId!).subscribe({
+        next: (value) => {
+          console.log(value);
+          this.book = value;
+          this.bookOwnerId = value._ownerId;
+        },
+        
+        error: (error) => {
+          alert(error.message);
+        }
     })
 
     this.bookService.getBookById(this.bookId!).subscribe({
@@ -93,12 +70,13 @@ export class BookDetailsComponent implements OnInit {
 
   
   addToFavorites() {
-    console.log(this.bookDetails)
-    this.bookService.addToFavorites(this.bookDetails!);
+    this.bookService.addToFavorites(this.book!);
     this.router.navigate(['/favorite-books'])
   }
 
   isAuthorized(): boolean {
-    return this.loggedInUserId !== null && this.loggedInUserId === this.bookDetails._ownerId;
+    console.log(this.loggedInUserId)
+    console.log(this.bookOwnerId)
+    return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
   }
 }

@@ -5,8 +5,8 @@
             <form
                 class="add-book-form"
                 id="add-book-form"
-                [formGroup]="form"
-                (ngSubmit)="createBook()"
+                #addBook="ngForm"
+                (ngSubmit)="createBook(addBook)"
             >
                 <h2>Add Book</h2>
 
@@ -14,18 +14,20 @@
                     <!-- <span class="icon"><i class="fa-solid fa-envelope"></i></span> -->
                     <input
                         type="text"
+                        name="username"
                         id="username"
-                        formControlName="username"
+                        #inputUsername="ngModel"
+                        ngModel
                         minLength="3"
                         required
                     />
                     <label for="username">Username</label>
                 </div>
 
-                <ng-container *ngIf="form.get('username')?.touched">
-                    <div class="error" *ngIf="form.get('username')?.errors?.['required']">
+                <ng-container *ngIf="inputUsername?.touched">
+                    <div class="error" *ngIf="inputUsername?.errors?.['required']">
                         <p>Username is required!</p>
-                        <p class="error" *ngIf="form.get('username')?.errors?.['minLength']">
+                        <p class="error" *ngIf="inputUsername?.errors?.['minLength']">
                             Username must have at least 3 characters!
                         </p>
                     </div>
@@ -35,16 +37,18 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-envelope"></i></span> -->
                     <input
+                        name="title"
                         type="text"
                         id="title"
-                        formControlName="title"
+                        #inputTitle="ngModel"
+                        ngModel
                         required
                     />
                     <label for="title">Title</label>
                 </div>
 
-                <ng-container *ngIf="form.get('title')?.touched">
-                    <div class="error" *ngIf="form.get('title')?.errors?.['required']">
+                <ng-container *ngIf="inputTitle?.touched">
+                    <div class="error" *ngIf="inputTitle?.errors?.['required']">
                         <p>Title is required!</p>
                     </div>
                 </ng-container>
@@ -52,19 +56,21 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
+                        name="author"
                         type="text"
-                        formControlName="author"
+                        #inputAuthor="ngModel"
+                        ngModel
                         minLength="2"
                         required
                     />
                     <label for="author">Author</label>
                 </div>
 
-                <ng-container *ngIf="form.get('author')?.touched">
-                    <div class="error" *ngIf="form.get('author')?.errors?.['required']">
+                <ng-container *ngIf="inputAuthor?.touched">
+                    <div class="error" *ngIf="inputAuthor?.errors?.['required']">
                         <p>Author is required!</p>
-                        <p *ngIf="form.get('author')?.errors?.['minLength']">
-                            Author name must have at least {{ form.get('author')?.errors?.['minLength'] }}
+                        <p *ngIf="inputAuthor?.errors?.['minLength']">
+                            Author name must have at least {{ inputAuthor?.errors?.['minLength'] }}
                         </p>
                     </div>
                 </ng-container>
@@ -72,15 +78,17 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
+                        name="image"
                         type="text"
-                        formControlName="image"
+                        #inputImage="ngModel"
+                        ngModel
                         required
                     />
                     <label for="image">Image</label>
                 </div>
 
-                <ng-container *ngIf="form.get('image')?.touched">
-                    <div class="error" *ngIf="form.get('image')?.errors?.['required']">
+                <ng-container *ngIf="inputImage?.touched">
+                    <div class="error" *ngIf="inputImage?.errors?.['required']">
                         <p>ImageUrl is required!</p>
                     </div>
                 </ng-container>
@@ -88,18 +96,21 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
+                        name="information"
                         type="text"
-                        formControlName="information"
+                        #inputInformation="ngModel"
+                        ngModel
+                        maxLength="255"
                         required
                     />
                     <label for="information">Information</label>
                 </div>
 
-                <ng-container *ngIf="form.get('information')?.touched">
-                    <div class="error" *ngIf="form.get('information')?.errors?.['required']">
+                <ng-container *ngIf="inputInformation?.touched">
+                    <div class="error" *ngIf="inputInformation?.errors?.['required']">
                         <p>Information about the book is required!</p>
-                        <p *ngIf="form.get('information')?.errors?.['maxLength']">
-                            Information text must not have more than {{ form.get('information')?.errors?.['maxLength']?.['requiredLength'] }} words
+                        <p *ngIf="inputInformation?.errors?.['maxLength']">
+                            Information text must not have more than {{ inputInformation?.errors?.['maxLength']?.['requiredLength'] }} words
                         </p>
                     </div>
                 </ng-container>
@@ -107,18 +118,21 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
+                        name="summary"
                         type="text"
-                        formControlName="summary"
+                        #inputSummary="ngModel"
+                        ngModel
+                        maxLength="255"
                         required
                     />
                     <label for="summary">Summary</label>
                 </div>
 
-                <ng-container *ngIf="form.get('summary')?.touched">
-                    <div class="error" *ngIf="form.get('summary')?.errors?.['required']">
+                <ng-container *ngIf="inputSummary?.touched">
+                    <div class="error" *ngIf="inputSummary?.errors?.['required']">
                         <p>Information about the book is required!</p>
-                        <p *ngIf="form.get('summary')?.errors?.['maxLength']">
-                            Summary text must not have more than {{ form.get('summary')?.errors?.['maxLength']?.['requiredLength'] }} words
+                        <p *ngIf="inputSummary?.errors?.['maxLength']">
+                            Summary text must not have more than {{ inputSummary?.errors?.['maxLength']?.['requiredLength'] }} words
                         </p>
                     </div>
                 </ng-container>
@@ -126,21 +140,23 @@
                 <div class="input-box">
                     <!-- <span class="icon"><i class="fa-solid fa-lock"></i></span> -->
                     <input
+                        name="price"
                         type="text"
-                        formControlName="price"
+                        #inputPrice="ngModel"
+                        ngModel
                         required
                     />
                     <label for="price">Price</label>
                 </div>
 
-                <ng-container *ngIf="form.get('information')?.touched">
-                    <div class="error" *ngIf="form.get('author')?.errors?.['required']">
+                <ng-container *ngIf="inputPrice?.touched">
+                    <div class="error" *ngIf="inputPrice.errors?.['required']">
                         <p>Price of the book is required!</p>
                     </div>
                 </ng-container>
                 
-                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.invalid" disabled>Add Book</button>
-                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="form.valid">Add Book</button>
+                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="addBook.invalid" disabled>Add Book</button>
+                <button type="submit" class="add-book-btn" value="Add-button" *ngIf="addBook.valid">Add Book</button>
     
             </form>
         </div>

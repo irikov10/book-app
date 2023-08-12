@@ -8,5 +8,5 @@ export interface Book {
     image: string;
     _id?: string;
     _ownerId: string;
-    userId: string;
+    // userId: string;
 }

@@ -60,7 +60,6 @@ export class EditBookComponent implements OnInit {
       summary: this.form.value.summary!, 
       price: this.form.value.price!,
       _ownerId: this.book._ownerId,
-      userId: this.book.userId
     };
   
     const bookId = this.activatedRoute.snapshot.paramMap.get('id');

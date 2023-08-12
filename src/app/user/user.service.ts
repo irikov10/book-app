@@ -17,10 +17,10 @@ export class UserService {
 
   public user: User | null = null;
 
+  public loggedUser = JSON.parse(localStorage.getItem('user') as string);
   constructor( private createService: UserCreateService, private router: Router) {
 
-    const loggedUser = JSON.parse(localStorage.getItem('user') as string);
-    this.user$$.next(loggedUser as User);
+    this.user$$.next(this.loggedUser as User);
 
   }
 
