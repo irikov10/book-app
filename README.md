@@ -1,4 +1,4 @@
-# BookApp
+![image](https://github.com/irikov10/book-app/assets/106108675/c5851afb-d6f3-4dd9-8c98-17b3e121df3b)# BookApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
 
@@ -25,3 +25,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Home Page 
+![home](https://github.com/irikov10/book-app/assets/106108675/ba0dccd8-e151-4dd1-bb6a-d6df2b507a5c)
