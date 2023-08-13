@@ -52,7 +52,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![favourite books page](https://github.com/irikov10/book-app/assets/106108675/b889cf74-c359-4df1-9626-85333674d874)
 
 ## Comment Section 
-![comment section](https://github.com/irikov10/book-app/assets/106108675/a20eb552-3a5b-49cc-af88-a4b466c80ac0)
+![comment section](https://github.com/irikov10/book-app/assets/106108675/a20eb552-3a5b-49cc-af88-a4b466c80ac0) 
 
 ## Add Comment
 ![add comment page](https://github.com/irikov10/book-app/assets/106108675/070b76c4-4f11-4f1b-b78b-8f3b8c6b38f2)
