@@ -19,6 +19,7 @@ export class AddBookComponent{
     if(form.invalid) {
       return;
     }
+    
 
     const data: Book = {
       username: form.value.username,
@@ -33,8 +34,7 @@ export class AddBookComponent{
     }
 
     // const { username, title, author, image, information, summary, price } = this.form.value;
-    this.bookService.postBook(data).subscribe(() => {
-        this.router.navigate(['/books-collection'])
-    })
+    this.bookService.postBook(data)
+    this.router.navigate(['/books-collection'])
   }
 }

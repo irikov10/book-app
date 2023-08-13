@@ -1,22 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { BooksService } from '../books.service';
 import { Comments } from 'src/app/interfaces/comments';
 import { Book } from 'src/app/interfaces/book';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user/user.service';
-import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.css']
 })
-export class BookDetailsComponent implements OnInit {
+export class BookDetailsComponent implements AfterViewInit {
 
   loggedInUserId: string | null = null;
 
-  commentsList: Comments[] | null = null;
-  comments: [] = [];
   bookInformation: Book[] | null = null;
   bookId: string | null = null;
   bookOwnerId: string | null = null;
@@ -24,9 +21,8 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(public bookService: BooksService, private activeRoute: ActivatedRoute, private userService: UserService, private router: Router) { }
 
-  // loggedUser = this.userService.loggedUser?._id;
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.loggedInUserId = this.userService.getLoggedInUserId();
 
     this.bookId = this.activeRoute.snapshot.paramMap.get('id');
@@ -77,6 +73,12 @@ export class BookDetailsComponent implements OnInit {
   isAuthorized(): boolean {
     console.log(this.loggedInUserId)
     console.log(this.bookOwnerId)
-    return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
+
+    if(this.loggedInUserId && this.bookOwnerId) {
+      return this.loggedInUserId !== null && this.loggedInUserId === this.bookOwnerId;
+    } else {
+      return false
+    }
+
   }
 }

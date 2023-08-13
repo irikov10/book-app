@@ -3,7 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Book } from '../interfaces/book';
 import { Comments } from '../interfaces/comments';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { UserService } from '../user/user.service';
+import { v4 as uuid } from 'uuid'
 
 const apiUrl = environment.apiURL;
 
@@ -12,23 +14,32 @@ const apiUrl = environment.apiURL;
 })
 export class BooksService {
 
-  private book$$ = new BehaviorSubject<Book | undefined>(undefined);
-  public book$ = this.book$$.asObservable();
+  subscription: Subscription | undefined;
+  private _book$ = new BehaviorSubject<Book[]>([])
+  private _comment$ = new BehaviorSubject<Comments[]>([])
   book: Book | undefined;
   private favoriteBooks: Book[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
-  getBooks() {
+  getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${apiUrl}/books`)
   }
 
-  getBookById(id: string) {
+  getBookById(id: string): Observable<Book> {
     return this.http.get<Book>(`${apiUrl}/books/${id}`)
   }
 
   postBook(data: Book) {
-    return this.http.post<Book>(`${apiUrl}/books`, data);
+    const bookPayload = {
+      ...data,
+      _ownerId: this.userService.loggedUser?._id,
+      id: uuid(),
+    }
+
+    this.subscription = this.http.post<Book>(`${apiUrl}/books`, bookPayload).subscribe((book) => {
+      this._book$.next([...this._book$.getValue(), book])
+    })
   }
 
   deleteBook(id: string) {
@@ -45,7 +56,17 @@ export class BooksService {
   }
 
   postComment(bookId: string, comment: Comments) {
-    return this.http.post<Comments>(`${apiUrl}/comments/${bookId}`, comment)
+
+    const commentPayload = {
+      ...comment,
+      _ownerId: this.userService.loggedUser?._id,
+      id: uuid(),
+    }
+
+    this.subscription = this.http.post<Comments>(`${apiUrl}/comments/${bookId}`, commentPayload).subscribe((comment) => {
+      this._comment$.next([...this._comment$.getValue(), comment])
+    })
+
   }
 
   deleteCommentById(id: string, bookId: string) {

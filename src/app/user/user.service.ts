@@ -10,18 +10,16 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  private _user$ = new BehaviorSubject<User | null>(null);
-  user$ = this._user$.asObservable();
+  private _loggedUser$ = new BehaviorSubject<User | null>(null);
+  loggedUser$ = this._loggedUser$.asObservable();
 
   error: string = '';
 
   public user: User | null = null;
 
-  public loggedUser = JSON.parse(localStorage.getItem('user') as string);
   constructor( private createService: UserCreateService, private router: Router) {
-
-    this._user$.next(this.loggedUser as User);
-
+    const loggedUser = JSON.parse(localStorage.getItem('user') as string);
+    this._loggedUser$.next(loggedUser as User);
   }
 
   get isLogged(): boolean {
@@ -55,7 +53,7 @@ export class UserService {
   }
 
   logout(): void {
-    this._user$.next(null);
+    this._loggedUser$.next(null);
     this.createService.onLogout();
     this.router.navigate(['/login']);
   }
@@ -65,7 +63,7 @@ export class UserService {
   }
 
   setUser(user: User): void {
-    this._user$.next(user);
+    this._loggedUser$.next(user);
     localStorage.setItem('user', JSON.stringify(user));
   }
 
@@ -75,6 +73,13 @@ export class UserService {
 
   getLoggedInUserId(): string | null {
     const loggedInUser: User | null = JSON.parse(localStorage.getItem('user')!);
+
+    console.log(loggedInUser)
+    
     return loggedInUser ? loggedInUser._id : null;
+  }
+
+  get loggedUser(): User | null {
+    return this._loggedUser$.getValue();
   }
 }

@@ -3,7 +3,18 @@
         <div class="col">
             <h2>Want to buy a book?</h2>
 
-            <div class="subtitle">
+            <div class="subtitle" *ngIf="!userService.isAuthenticated()">
+                <h4>
+                    BookMania is the perfect website for you to find what book suits your needs
+                </h4>
+    
+                <h4>
+                    so you can decide if you want to buy it afterwards.
+                </h4>
+            </div>
+
+            <div class="subtitle" *ngIf="userService.isAuthenticated()">
+
                 <h4>
                     BookMania is the perfect website for you to find what book suits your needs
                 </h4>

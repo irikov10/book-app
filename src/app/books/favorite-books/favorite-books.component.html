@@ -10,7 +10,7 @@
                 <h3 class="title">Title: {{ book.title }}</h3>
                 <h4 class="author">Author: {{ book.author }}</h4>
     
-                <a routerLink="/" class="see-details-button">See Details</a>
+                <a [routerLink]="'/books-collection/details/' + book._id" class="see-details-button">See Details</a>
             </div>
     
             

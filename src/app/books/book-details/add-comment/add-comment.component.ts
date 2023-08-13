@@ -24,11 +24,9 @@ export class AddCommentComponent {
     const data: Comments = {
       username: form.value.name,
       comment: form.value.comment,
-      _ownerId: this.userService.user?._id as string,
+      _ownerId: this.userService.loggedUser?._id as string,
       _id: uuid(),
     }
-
-    console.log(data)
 
     if (
       (!data.username || data.username.trim().length === 0) &&
@@ -39,16 +37,8 @@ export class AddCommentComponent {
       return;
     }
 
-    this.booksService.postComment(this.bookId!, data).subscribe(
-      () => {
-        console.log('Comment posted successfully');
-        this.router.navigate(['/books-collection/details', this.bookId]);
-      },
-      (error) => {
-        console.error(error);
-        alert('Failed to post comment');
-      }
-    );
+    this.booksService.postComment(this.bookId!, data)
+    this.router.navigate(['/books-collection/details/' + this.bookId])
   } 
 }
 

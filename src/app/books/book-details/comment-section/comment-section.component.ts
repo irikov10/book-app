@@ -13,13 +13,15 @@ export class CommentSectionComponent implements OnInit {
   commentsList!: Comments[];
   bookId = this.activatedRoute.snapshot.paramMap.get('id');
   comment: string = '';
-  loggedUser = this.userService.user?._id;
+  loggedUser = this.userService.loggedUser?._id;
 
   constructor(private booksService: BooksService, private activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.booksService.getComments(this.bookId!).subscribe({
       next: (commentData) => {
+
+
 
         if(commentData !== null) {
           this.commentsList = Object.values(commentData);
